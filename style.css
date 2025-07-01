@@ -1,0 +1,198 @@
+@font-face {
+  font-family: 'roboto';     
+  src: url('fonts/RobotoCondensed-Black.ttf') format('truetype'); 
+}
+
+@font-face {
+  font-family: 'vcr';     
+  src: url('fonts/VCR_OSD_MONO_1.001.ttf') format('truetype'); 
+}
+
+:root {
+    --fontpadrao--: 'roboto'
+    --fontheader--: 'vcr'
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+
+    height: 100%;
+
+    background: #a5a5a5;
+}
+
+header {
+    margin: 0px;
+    padding: 0px;
+}
+
+.caixa-header {
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+
+    padding: 30px;
+    margin: 0px;
+
+    width: 1525px;
+    height: 10vh;
+
+    
+    background: url(videos/VideoAnotherHim.gif);
+    color: rgb(255, 255, 255);
+    font-family: var(--fontheader--);
+    
+    
+
+
+}
+
+
+.links-nav { /* Seus links dentro de uma div ou nav */
+    
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 30px;
+    font-family: 'vcr';
+    gap: 100px;
+}
+
+
+.nav-links { /* Seus links dentro de uma div ou nav */
+    display: flex;
+    gap: 50px; /* Espaço de 30px entre cada link */
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-wrap: wrap;
+  position: relative; /* Permite posicionar o ::before absolutamente */
+  overflow: hidden; /* Evita vazamento do blur */
+}
+
+/* Camada de fundo desfocada */
+main::before {
+  content: "";
+  
+  background: url(images/XTaleCity.webp) no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(5px); /* Aplica o blur apenas aqui */
+  z-index: -1; /* Coloca ATRÁS do conteúdo do main */
+}
+
+.caixa-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px;
+  width: 740px;
+  min-height: 150vh;
+  border-style: double;
+  background-image: linear-gradient(rgb(255, 255, 255), rgb(106, 65, 221));
+  
+  position: relative; /* Adicionado */
+
+  flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: flex-start; 
+
+    
+  
+}
+
+p {
+  color: rgb(113, 56, 219);
+  font-family: 'roboto';
+   text-shadow: 
+    0 0 2px #ffffff,
+    0 0 2px #ffffff,
+    0 0 2px #ffffff,
+    0 0 2px #ffffff;
+  
+
+}
+
+.icone-elementos {
+  position: absolute; /* Adicionado */
+  top: -50px; /* Ajuste conforme necessário */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  padding: 40px;
+  z-index: 1; /* Adicionado */
+}
+
+.icone {
+  justify-content: center;
+  display: block; /* Adicionado para melhor controle */
+  margin: 30px; /* Adicionado para centralização interna */
+  width: 200px;
+}
+
+
+.caixa-footeer {
+    display: flex;
+    
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+
+    padding: 30px;
+    margin: 0px;
+
+    width: 1525px;
+    height: 10vh;
+
+    
+    background: url(videos/VideoAnotherHim.gif);
+    color: rgb(255, 255, 255);
+    font-family: var(--fontheader--);
+
+    display: flex;
+    gap: 50px; /* Espaço de 30px entre cada link */
+    flex-wrap: wrap;
+    align-items: center;
+    
+    
+
+
+}
+
+li {
+  color: rgb(113, 56, 219);
+  font-family: 'roboto';
+   text-shadow: 
+    0 0 2px #ffffff,
+    0 0 2px #ffffff,
+    0 0 2px #ffffff,
+    0 0 2px #ffffff;
+  
+  
+  
+
+}
+
+footer {
+  margin: 0px;
+    padding: 0px;
+}
+
