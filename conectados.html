@@ -24,19 +24,1155 @@
     
     <main>
         <section>
-            <div class="caixa-principal">
-                <div class="icone">
-                    <img src="images/icon.png" alt="icone" class="icone-elementos">
-                </div>
+            <div class="caixa-principal-2">
+                
 
-                <p>Mim diga entao Tales of Elementaris
+                <p>
+                    Os Conectados são os Personagens dos Jogadores do RPG, com cada jogador tendo Personagens principais sendo so Conectados e Personagens
+                    Secundarios diversos
+
+                </p>
+
+                <p>
+                    Os Players no caso são o Jean ( Kitsune ), Capuzado ( Satoshi ), Gbfoxy ( Raiko ), PessoaDosPoemas ( Mary ), Guibas ( William ) e Mr.Bolhas ( Hank ).
+
+            
+                </p>
+
+                
+
+                <p>
+
+                    cada Conectado possui seu passado e Historia em geral como um Protagonista desse RPG.
 
                 </p>
                 
             </div>
+
+
+            <div class="caixa-conectados-raiko">
+    <h1 class="titulo-conectado-raiko">RAIKO YASHI</h1>
+    <img src="images/raiko2.png" alt="Raiko Yashi" class="icone-conectado-raiko" id="imagem-personagem-raiko">
+    <div class="botao">
+        <a href="#" class="link-personagem">Bio do Personagem</a>
+    </div>
+</div>
+
+<div class="caixa-conectados-william">
+    <h1 class="titulo-conectado-william">WILLIAM YUJI CARMELLO AFTON</h1>
+    <img src="images/William.png" alt="William" class="icone-conectado-william" id="imagem-personagem-william">
+    <div class="botao">
+        <a href="#" class="link-personagem">Bio do Personagem</a>
+    </div>
+</div>
+
+<div class="caixa-conectados-mary">
+    <h1 class="titulo-conectado-mary">MARY ATHEIAN</h1>
+    <img src="images/mary.png" alt="" class="icone-conectado-mary" id="imagem-personagem-mary">
+    <div class="botao">
+        <a href="#" class="link-personagem">Bio do Personagem</a>
+    </div>
+</div>
+
+<div class="caixa-conectados-satoshi">
+    <h1 class="titulo-conectado-satoshi"> SATOSHI W.D ASTORIA</h1>
+    <img src="images/Satoshi.png" alt="" class="icone-conectado-satoshi" id="imagem-personagem-satoshi">
+    <div class="botao">
+        <a href="#" class="link-personagem">Bio do Personagem</a>
+    </div>
+</div>
+
+<div class="caixa-conectados-kitsune">
+    <h1 class="titulo-conectado-kitsune">KITSUNE SPARDA</h1>
+    <img src="images/kitsune.png" alt="" class="icone-conectado-kitsune" id="imagem-personagem-kitsune">
+    <div class="botao">
+        <a href="#" class="link-personagem">Bio do Personagem</a>
+    </div>
+</div>
+
+<div class="caixa-conectados-hank">
+    <h1 class="titulo-conectado-hank">HANK SCHRADER</h1>
+    <img src="images/hank.png" alt="" class="icone-conectado-hank" id="imagem-personagem-hank">
+    <div class="botao">
+        <a href="#" class="link-personagem">Bio do Personagem</a>
+    </div>
+</div>
+
+
+
+
+
+
+
         </section>
     </main>
 
+       <style>
+    .caixa-conectados-raiko {
+        display: flex;
+        padding: 40px;
+        margin: 40px auto;
+        max-width: 90%;
+        width: 600px;
+        min-height: 55vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px ridge rgba(122, 7, 7, 0.8);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        box-shadow: 0 10px 30px rgba(252, 0, 0, 0.6),
+                    inset 0 0 15px rgba(146, 2, 2, 0.3);
+        transition: all 0.5s ease;
+    }
+
+    .caixa-conectados-raiko:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .caixa-conectados-raiko::before {
+        content: "";
+        background: url(images/raikoBg2.jpg) no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: -2;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    /* Efeito de sobreposição gradiente */
+    .caixa-conectados-raiko::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(106, 65, 221, 0.2) 0%, 
+                    rgba(238, 9, 9, 0.4) 100%);
+        z-index: -1;
+    }
+
+    .titulo-conectado-raiko {
+        color: rgb(255, 230, 230);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(141, 23, 23, 0.8),
+            0 0 15px rgba(141, 23, 23, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-raiko::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(252, 0, 0, 0.8), 
+                    transparent);
+    }
+
+    .icone-conectado-raiko {
+        width: 280px;
+        border-radius: 10px;
+        border: 3px solid rgba(182, 16, 16, 0.3);
+        box-shadow: 0 5px 20px rgba(161, 7, 7, 0.5),
+                    inset 0 0 15px rgba(121, 8, 8, 0.2);
+        transition: all 0.4s ease;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        backdrop-filter: blur(2px);
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Adiciona transição suave */
+    }
+
+    .icone-conectado-raiko:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(173, 18, 18, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    }
+
+    /* William parte */
+
+    .caixa-conectados-william {
+        display: flex;
+        padding: 40px;
+        margin: 40px auto;
+        max-width: 90%;
+        width: 600px;
+        min-height: 55vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px ridge rgba(90, 10, 128, 0.8);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        box-shadow: 0 10px 30px rgba(126, 11, 161, 0.6),
+                    inset 0 0 15px rgba(84, 27, 138, 0.3);
+        transition: all 0.5s ease;
+    }
+
+    .caixa-conectados-william:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .caixa-conectados-william::before {
+        content: "";
+        background: url(images/WilliamBG.jpg) no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: -2;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    /* Efeito de sobreposição gradiente */
+    .caixa-conectados-william::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(97, 5, 105, 0.2) 0%, 
+                    rgba(171, 20, 177, 0.4) 100%);
+        z-index: -1;
+    }
+
+    .titulo-conectado-william {
+        color: rgb(161, 113, 161);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(175, 96, 190, 0.8),
+            0 0 15px rgba(121, 35, 170, 0.6),
+            2px 2px 4px rgba(160, 36, 150, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-william::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(102, 32, 107, 0.8), 
+                    transparent);
+    }
+
+    .icone-conectado-william {
+        width: 280px;
+        border-radius: 10px;
+        border: 3px solid rgba(131, 39, 143, 0.3);
+        box-shadow: 0 5px 20px rgba(138, 16, 117, 0.5),
+                    inset 0 0 15px rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        backdrop-filter: blur(2px);
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Adiciona transição suave */
+    }
+
+    .icone-conectado-william:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(162, 40, 187, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    }
+
+    .caixa-conectados-william .particula {
+        position: absolute;
+        background: rgba(76, 11, 138, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .titulo-conectado-william {
+        color: rgb(255, 230, 230);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(137, 23, 141, 0.8),
+            0 0 15px rgba(141, 23, 141, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-william::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(255, 255, 255, 0.8), 
+                    transparent);
+    }
+
+    /* Mary Parte */
+
+    .caixa-conectados-mary {
+        display: flex;
+        padding: 40px;
+        margin: 40px auto;
+        max-width: 90%;
+        width: 600px;
+        min-height: 55vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px ridge rgba(232, 164, 235, 0.8);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+                    inset 0 0 15px rgba(255, 255, 255, 0.3);
+        transition: all 0.5s ease;
+    }
+
+    .caixa-conectados-mary:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .caixa-conectados-mary::before {
+        content: "";
+        background: url(images/maryGif.gif) no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: -2;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    /* Efeito de sobreposição gradiente */
+    .caixa-conectados-mary::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(235, 57, 220, 0.2) 0%, 
+                    rgba(187, 187, 187, 0.4) 100%);
+        z-index: -1;
+    }
+
+    .titulo-conectado-mary {
+        color: rgb(161, 113, 161);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(223, 168, 235, 0.8),
+            0 0 15px rgba(255, 255, 255, 0.6),
+            2px 2px 4px rgba(236, 135, 228, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-mary::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(245, 155, 252, 0.8), 
+                    transparent);
+    }
+
+    .icone-conectado-mary {
+        width: 280px;
+        border-radius: 10px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5),
+                    inset 0 0 15px rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        backdrop-filter: blur(2px);
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Adiciona transição suave */
+    }
+
+    .icone-conectado-mary:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    }
+
+    .caixa-conectados-mary .particula {
+        position: absolute;
+        background: rgba(201, 120, 177, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .titulo-conectado-mary {
+        color: rgb(255, 230, 230);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(240, 114, 245, 0.8),
+            0 0 15px rgba(196, 93, 196, 0.6),
+            2px 2px 4px rgba(243, 227, 238, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-mary::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(255, 255, 255, 0.8), 
+                    transparent);
+    }
+
+    /* Satoshi Parte */
+
+    .caixa-conectados-satoshi {
+        display: flex;
+        padding: 40px;
+        margin: 30px auto;
+        max-width: 90%;
+        width: 600px;
+        min-height: 55vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px ridge rgba(119, 119, 119, 0.8);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+                    inset 0 0 15px rgba(255, 255, 255, 0.3);
+        transition: all 0.5s ease;
+    }
+
+    .caixa-conectados-satoshi:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .caixa-conectados-satoshi::before {
+        content: "";
+        background: url(images/SatoshiBG2.jpg) no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: -2;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    /* Efeito de sobreposição gradiente */
+    .caixa-conectados-satoshi::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(113, 11, 230, 0.2) 0%, 
+                    rgba(153, 152, 153, 0.4) 100%);
+        z-index: -1;
+    }
+
+    .titulo-conectado-satoshi {
+        color: rgb(99, 9, 202);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(15, 15, 15, 0.8),
+            0 0 15px rgba(44, 44, 44, 0.6),
+            2px 2px 4px rgba(2, 2, 2, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-satoshi::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(101, 14, 201, 0.8), 
+                    transparent);
+    }
+
+    .icone-conectado-satoshi {
+        width: 280px;
+        border-radius: 10px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5),
+                    inset 0 0 15px rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        backdrop-filter: blur(2px);
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Adiciona transição suave */
+    }
+
+    .icone-conectado-satoshi:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    }
+
+    .caixa-conectados-satoshi .particula {
+        position: absolute;
+        background: rgba(53, 53, 53, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .titulo-conectado-satoshi {
+        color: rgb(255, 230, 230);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(0, 0, 0, 0.8),
+            0 0 15px rgba(109, 109, 109, 0.6),
+            2px 2px 4px rgba(243, 227, 238, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-satoshi::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(255, 255, 255, 0.8), 
+                    transparent);
+    }
+
+ /* Kitsune Parte */
+
+    .caixa-conectados-kitsune {
+        display: flex;
+        padding: 40px;
+        margin: 30px auto;
+        max-width: 90%;
+        width: 600px;
+        min-height: 55vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px ridge rgba(255, 2, 2, 0.8);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        box-shadow: 0 10px 30px rgba(150, 2, 2, 0.6),
+                    inset 0 0 15px rgba(17, 15, 15, 0.3);
+        transition: all 0.5s ease;
+    }
+
+    .caixa-conectados-kitsune:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .caixa-conectados-kitsune::before {
+        content: "";
+        background: url(images/KitsuneBG.jpg) no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: -2;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    /* Efeito de sobreposição gradiente */
+    .caixa-conectados-kitsune::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(230, 11, 11, 0.2) 0%, 
+                    rgba(14, 2, 2, 0.4) 100%);
+        z-index: -1;
+    }
+
+    .titulo-conectado-kitsune {
+        color: rgb(99, 9, 202);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(238, 0, 0, 0.8),
+            0 0 15px rgba(99, 4, 4, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-kitsune::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(240, 9, 9, 0.8), 
+                    transparent);
+    }
+
+    .icone-conectado-kitsune {
+        width: 280px;
+        border-radius: 10px;
+        border: 3px solid rgba(255, 0, 0, 0.3);
+        box-shadow: 0 5px 20px rgba(41, 2, 2, 0.5),
+                    inset 0 0 15px rgba(236, 0, 0, 0.2);
+        transition: all 0.4s ease;
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 5px;
+        backdrop-filter: blur(2px);
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Adiciona transição suave */
+    }
+
+    .icone-conectado-kitsune:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    }
+
+    .caixa-conectados-kitsune .particula {
+        position: absolute;
+        background: rgba(241, 0, 0, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .titulo-conectado-kitsune {
+        color: rgb(255, 230, 230);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(231, 0, 0, 0.8),
+            0 0 15px rgba(114, 10, 10, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-kitsune::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(221, 3, 3, 0.8), 
+                    transparent);
+    }
+
+    /* Hank Parte */
+
+    .caixa-conectados-hank {
+        display: flex;
+        padding: 40px;
+        margin: 30px auto;
+        max-width: 90%;
+        width: 600px;
+        min-height: 55vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 3px ridge rgba(238, 231, 133, 0.8);
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+        color: white;
+        box-shadow: 0 10px 30px rgba(223, 208, 75, 0.6),
+                    inset 0 0 15px rgba(60, 43, 136, 0.3);
+        transition: all 0.5s ease;
+    }
+
+    .caixa-conectados-hank:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    }
+
+    .caixa-conectados-hank::before {
+        content: "";
+        background: url(images/HankBG.jpg) no-repeat center center/cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.5;
+        z-index: -2;
+        filter: brightness(0.8) contrast(1.2);
+    }
+
+    /* Efeito de sobreposição gradiente */
+    .caixa-conectados-hank::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+                    rgba(236, 235, 132, 0.2) 0%, 
+                    rgba(54, 77, 180, 0.4) 100%);
+        z-index: -1;
+    }
+
+    .titulo-conectado-hank {
+        color: rgb(99, 9, 202);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(227, 230, 97, 0.8),
+            0 0 15px rgba(52, 77, 143, 0.6),
+            2px 2px 4px rgba(211, 197, 116, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-hank::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(13, 9, 240, 0.8), 
+                    transparent);
+    }
+
+    .icone-conectado-hank {
+        width: 280px;
+        border-radius: 10px;
+        border: 3px solid rgba(197, 180, 82, 0.3);
+        box-shadow: 0 5px 20px rgba(221, 194, 121, 0.5),
+                    inset 0 0 15px rgba(17, 9, 133, 0.2);
+        transition: all 0.4s ease;
+        background-color: rgba(213, 223, 127, 0.3);
+        padding: 5px;
+        backdrop-filter: blur(2px);
+        cursor: pointer; /* Muda o cursor para indicar que é clicável */
+            transition: transform 0.3s ease; /* Adiciona transição suave */
+    }
+
+    .icone-conectado-hank:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: scale(1.05); /* Efeito de zoom sutil ao passar o mouse */
+    }
+
+    .caixa-conectados-hank .particula {
+        position: absolute;
+        background: rgba(226, 218, 110, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .titulo-conectado-hank {
+        color: rgb(255, 230, 230);
+        font-family: 'vcr', sans-serif;
+        text-shadow: 
+            0 0 8px rgba(227, 231, 0, 0.8),
+            0 0 15px rgba(10, 12, 114, 0.6),
+            2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 20px 0;
+        line-height: 1.2;
+        font-size: 3rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    /* Linha decorativa abaixo do título */
+    .titulo-conectado-hank::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 2px;
+        background: linear-gradient(90deg, 
+                    transparent, 
+                    rgba(217, 221, 3, 0.8), 
+                    transparent);
+    }
+
+    
+
+    .botao {
+        margin-top: 30px;
+        text-align: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .link-personagem {
+        display: inline-block;
+        padding: 14px 35px;
+        background: linear-gradient(135deg, 
+                    rgba(35, 34, 36, 0.9) 0%, 
+                    rgba(18, 18, 19, 0.9) 100%);
+        color: white;
+        font-family: 'vcr', sans-serif;
+        text-decoration: none;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4),
+                    inset 0 0 10px rgba(255, 255, 255, 0.2);
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        letter-spacing: 1px;
+    }
+
+    .link-personagem:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(135deg, 
+                    rgba(215, 213, 218, 0.9) 0%, 
+                    rgba(107, 106, 107, 0.9) 100%);
+    }
+
+    .link-personagem:active {
+        transform: translateY(0);
+    }
+
+    .link-personagem::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent
+        );
+        transition: 0.6s;
+        z-index: -1;
+    }
+
+    .link-personagem:hover::before {
+        left: 100%;
+    }
+
+    /* Efeitos de partículas (opcional) */
+    .caixa-conectados-raiko .particula {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+    }
+</style>
+
+
+
+<script>
+    
+
+    // Array com os caminhos das imagens alternativas
+        const imagensAlternativas = [
+            "images/haise.png",
+            "images/raiko3.png",
+            "images/raiko4.png",
+            "images/raiko5.png",
+            "images/raiko6.png",
+            "images/raiko2.png" // Volta para a imagem original
+        ];
+        
+        let indiceAtual = 0;
+        const imagemPersonagem = document.getElementById('imagem-personagem-raiko');
+        
+        // Função para trocar a imagem
+        function trocarImagem() {
+            indiceAtual = (indiceAtual + 1) % imagensAlternativas.length;
+            imagemPersonagem.src = imagensAlternativas[indiceAtual];
+            
+            // Efeito visual de transição
+            imagemPersonagem.style.opacity = 0;
+            setTimeout(() => {
+                imagemPersonagem.style.opacity = 1;
+            }, 200);
+        }
+        
+        // Adiciona o evento de clique
+        imagemPersonagem.addEventListener('click', trocarImagem);
+
+
+    // Array com os caminhos das imagens alternativas
+        const imagensAlternativasWilliam = [
+            "images/yhwach.png",
+            "images/william.png" // Volta para a imagem original
+        ];
+        
+        
+        const imagemPersonagemWilliam = document.getElementById('imagem-personagem-william');
+        
+        // Função para trocar a imagem
+        function trocarImagemwilliam() {
+            indiceAtual = (indiceAtual + 1) % imagensAlternativasWilliam.length;
+            imagemPersonagemWilliam.src = imagensAlternativasWilliam[indiceAtual];
+            
+            // Efeito visual de transição
+            imagemPersonagemWilliam.style.opacity = 0;
+            setTimeout(() => {
+                imagemPersonagemWilliam.style.opacity = 1;
+            }, 200);
+        }
+        
+        // Adiciona o evento de clique
+        imagemPersonagemWilliam.addEventListener('click', trocarImagemwilliam);
+
+    
+    // Mary 
+
+    // Array com os caminhos das imagens alternativas
+        const imagensAlternativasMary = [
+            "images/mary.png",
+            "images/mary.png" // Volta para a imagem original
+        ];
+        
+        
+        const imagemPersonagemMary = document.getElementById('imagem-personagem-mary');
+        
+        // Função para trocar a imagem
+        function trocarImagemMary() {
+            indiceAtual = (indiceAtual + 1) % imagensAlternativasMary.length;
+            imagemPersonagemMary.src = imagensAlternativasMary[indiceAtual];
+            
+            // Efeito visual de transição
+            imagemPersonagemMary.style.opacity = 0;
+            setTimeout(() => {
+                imagemPersonagemMary.style.opacity = 1;
+            }, 200);
+        }
+        
+        // Adiciona o evento de clique
+        imagemPersonagemMary.addEventListener('click', trocarImagemMary);
+
+
+    // Satoshi
+
+    // Array com os caminhos das imagens alternativas
+        const imagensAlternativasSatoshi = [
+            "images/satoshi.png",
+            "images/satoshi.png" // Volta para a imagem original
+        ];
+        
+        
+        const imagemPersonagemSatoshi = document.getElementById('imagem-personagem-satoshi');
+        
+        // Função para trocar a imagem
+        function trocarImagemSatoshi() {
+            indiceAtual = (indiceAtual + 1) % imagensAlternativasSatoshi.length;
+            imagemPersonagemSatoshi.src = imagensAlternativasSatoshi[indiceAtual];
+            
+            // Efeito visual de transição
+            imagemPersonagemSatoshi.style.opacity = 0;
+            setTimeout(() => {
+                imagemPersonagemSatoshi.style.opacity = 1;
+            }, 200);
+        }
+        
+        // Adiciona o evento de clique
+        imagemPersonagemSatoshi.addEventListener('click', trocarImagemSatoshi);
+
+    
+    // Kitsune
+
+    // Array com os caminhos das imagens alternativas
+        const imagensAlternativasKitsune = [
+            "images/kitsune.png",
+            "images/kitsune.png" // Volta para a imagem original
+        ];
+        
+        
+        const imagemPersonagemKitsune = document.getElementById('imagem-personagem-kitsune');
+        
+        // Função para trocar a imagem
+        function trocarImagemKitsune() {
+            indiceAtual = (indiceAtual + 1) % imagensAlternativasKitsune.length;
+            imagemPersonagemKitsune.src = imagensAlternativasKitsune[indiceAtual];
+            
+            // Efeito visual de transição
+            imagemPersonagemKitsune.style.opacity = 0;
+            setTimeout(() => {
+                imagemPersonagemKitsune.style.opacity = 1;
+            }, 200);
+        }
+        
+        // Adiciona o evento de clique
+        imagemPersonagemKitsune.addEventListener('click', trocarImagemKitsune);
+
+    
+    // Hank
+
+    // Array com os caminhos das imagens alternativas
+        const imagensAlternativasHank = [
+            "images/hank.png",
+            "images/hank.png" // Volta para a imagem original
+        ];
+        
+        
+        const imagemPersonagemHank = document.getElementById('imagem-personagem-hank');
+        
+        // Função para trocar a imagem
+        function trocarImagemHank() {
+            indiceAtual = (indiceAtual + 1) % imagensAlternativasHank.length;
+            imagemPersonagemHank.src = imagensAlternativasHank[indiceAtual];
+            
+            // Efeito visual de transição
+            imagemPersonagemHank.style.opacity = 0;
+            setTimeout(() => {
+                imagemPersonagemHank.style.opacity = 1;
+            }, 200);
+        }
+        
+        // Adiciona o evento de clique
+        imagemPersonagemHank.addEventListener('click', trocarImagemHank);
+
+
+
+        
+
+</script>
+
+    
     
 </body>
 </html>
+
