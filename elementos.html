@@ -6,7 +6,126 @@
     <title>Tales of Elementaris</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <style>
+        /* Layout principal como coluna */
+        body {
+            display: block;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            display: block;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .caixa-principal {
+            min-height: 100vh;
+        }
+
+        /* Estilos adicionais para a seção interativa */
+        .interactive-section {
+            display: flex;
+            margin: 0 auto;
+            padding: 50px 0;
+            text-align: center;
+            background-color: #f5f5f5;
+            transition: background-color 0.5s ease;
+            border-radius: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            max-width: 1200px;
+        }
+        
+        .scroll-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .scroll-bar {
+            width: 10px;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .scroll-thumb {
+            width: 100%;
+            height: 50px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 5px;
+            position: absolute;
+            top: 0;
+            cursor: grab;
+            transition: background-color 0.3s;
+        }
+        
+        .scroll-thumb:hover {
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .content-container {
+            width: calc(100% - 30px);
+            height: 100%;
+            padding-right: 30px;
+            overflow: hidden;
+        }
+        
+        .content-item {
+            width: 100%;
+            height: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        
+        .content-item.active {
+            display: flex;
+        }
+        
+        .content-item img {
+            max-width: 100%;
+            max-height: 300px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: box-shadow 0.5s ease;
+        }
+        
+        .content-item h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .content-item p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            line-height: 1.6;
+            background: rgba(0,0,0,0.3);
+            padding: 15px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -16,8 +135,6 @@
                 <a href="conectados.html" class="links-nav">Conectados</a>
                 <a href="elementos.html" class="links-nav">Elementos</a>
                 <a href="sobre.html" class="links-nav">Sobre</a>
-
-
             </nav>
         </div>
     </header>
@@ -25,18 +142,190 @@
     <main>
         <section>
             <div class="caixa-principal">
-                <div class="icone">
-                    <img src="images/icon.png" alt="icone" class="icone-elementos">
+                <!-- Conteúdo principal aqui -->
+            </div>
+        </section>
+        
+        <!-- Seção interativa com scroll -->
+        <section class="interactive-section" id="interactive-section">
+            <div class="scroll-container">
+                <div class="content-container">
+                    <!-- Item 1 -->
+                    <div class="content-item active" data-bg-color="#f45c04">
+                        <img src="images/elements/fire.png" alt="Imagem 1" class="color-source">
+                        <h2>FIRE</h2>
+                        <p>mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa</p>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="content-item" data-bg-color="#2e5c6d">
+                        <img src="images/elements/water.png" alt="Imagem 2" class="color-source">
+                        <h2>WATER</h2>
+                        <p>O elemento do fogo representa a transformação, a paixão e a destruição criativa.</p>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="content-item" data-bg-color="#2e5c6d">
+                        <img src="images/elements/leaf.png" alt="Imagem 3" class="color-source">
+                        <h2>LEAF</h2>
+                        <p>A água adapta-se a qualquer forma, simbolizando a emoção e a intuição profunda.</p>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="content-item" data-bg-color="#4a6d3a">
+                        <img src="images/elements/nexus.png" alt="Imagem 4" class="color-source">
+                        <h2>Terra Estável</h2>
+                        <p>Sólida e confiável, a terra oferece fundamento para todos os outros elementos.</p>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="content-item" data-bg-color="#7c3a4a">
+                        <img src="images/elements/placeholder.png" alt="Imagem 5" class="color-source">
+                        <h2>Energia Pura</h2>
+                        <p>A quintessência que conecta todos os elementos em perfeito equilíbrio.</p>
+                    </div>
                 </div>
-
-                <p>Em Construçao 😎
-
-                </p>
                 
+                <div class="scroll-bar">
+                    <div class="scroll-thumb"></div>
+                </div>
             </div>
         </section>
     </main>
 
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollThumb = document.querySelector('.scroll-thumb');
+            const scrollBar = document.querySelector('.scroll-bar');
+            const contentItems = document.querySelectorAll('.content-item');
+            const interactiveSection = document.getElementById('interactive-section');
+            const containerHeight = document.querySelector('.scroll-container').offsetHeight;
+            const thumbHeight = scrollThumb.offsetHeight;
+            const maxScroll = containerHeight - thumbHeight;
+            const colorThief = new ColorThief();
+            
+            let isDragging = false;
+            
+            // Função para escurecer uma cor (hex)
+            function darkenColor(hex, percent) {
+                hex = hex.replace(/^\#/, '');
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                const darkenedR = Math.max(0, Math.floor(r * (1 - percent/100)));
+                const darkenedG = Math.max(0, Math.floor(g * (1 - percent/100)));
+                const darkenedB = Math.max(0, Math.floor(b * (1 - percent/100)));
+                return `#${darkenedR.toString(16).padStart(2, '0')}${darkenedG.toString(16).padStart(2, '0')}${darkenedB.toString(16).padStart(2, '0')}`;
+            }
+            
+            // Função para converter RGB para HEX
+            function rgbToHex(r, g, b) {
+                return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+            }
+            
+            // Aplica sombra colorida baseada na cor dominante da imagem
+            function applyColorfulShadow(imgElement) {
+                try {
+                    const dominantColor = colorThief.getColor(imgElement);
+                    const hexColor = rgbToHex(dominantColor[0], dominantColor[1], dominantColor[2]);
+                    imgElement.style.boxShadow = `0 10px 20px ${hexColor}`;
+                    
+                    // Atualiza também a cor de fundo do item
+                    const parentItem = imgElement.closest('.content-item');
+                    parentItem.setAttribute('data-bg-color', hexColor);
+                    
+                    // Se for o item ativo, atualiza o fundo da seção
+                    if (parentItem.classList.contains('active')) {
+                        const darkenedColor = darkenColor(hexColor, 20);
+                        interactiveSection.style.backgroundColor = darkenedColor;
+                    }
+                } catch (e) {
+                    console.log("Erro ao processar cor da imagem:", e);
+                }
+            }
+            
+            // Função para atualizar o conteúdo visível
+            function updateContent(position) {
+                const itemCount = contentItems.length;
+                const itemHeight = maxScroll / (itemCount - 1);
+                const activeIndex = Math.round(position / itemHeight);
+                
+                contentItems.forEach((item, index) => {
+                    const isActive = index === activeIndex;
+                    item.classList.toggle('active', isActive);
+                    
+                    if (isActive) {
+                        const bgColor = item.getAttribute('data-bg-color');
+                        const darkenedColor = darkenColor(bgColor, 20);
+                        interactiveSection.style.backgroundColor = darkenedColor;
+                        
+                        // Aplica sombra na imagem ativa
+                        const img = item.querySelector('img');
+                        if (img.complete) {
+                            applyColorfulShadow(img);
+                        }
+                    }
+                });
+            }
+            
+            // Processa todas as imagens para aplicar sombras coloridas
+            document.querySelectorAll('.color-source').forEach(img => {
+                if (img.complete) {
+                    applyColorfulShadow(img);
+                } else {
+                    img.addEventListener('load', function() {
+                        applyColorfulShadow(this);
+                    });
+                }
+            });
+            
+            // Evento de mouse down no thumb
+            scrollThumb.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                scrollThumb.style.cursor = 'grabbing';
+                e.preventDefault();
+            });
+            
+            // Evento de mouse move no documento
+            document.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                
+                const containerRect = scrollBar.getBoundingClientRect();
+                let newTop = e.clientY - containerRect.top - (thumbHeight / 2);
+                newTop = Math.max(0, Math.min(maxScroll, newTop));
+                scrollThumb.style.top = newTop + 'px';
+                updateContent(newTop);
+            });
+            
+            // Evento de mouse up no documento
+            document.addEventListener('mouseup', function() {
+                isDragging = false;
+                scrollThumb.style.cursor = 'grab';
+            });
+            
+            // Evento de wheel no container
+            document.querySelector('.scroll-container').addEventListener('wheel', function(e) {
+                e.preventDefault();
+                const currentTop = parseInt(scrollThumb.style.top) || 0;
+                let newTop = currentTop + e.deltaY * 0.5;
+                newTop = Math.max(0, Math.min(maxScroll, newTop));
+                scrollThumb.style.top = newTop + 'px';
+                updateContent(newTop);
+            });
+            
+            // Inicializar com o primeiro item ativo
+            updateContent(0);
+        });
+    </script>
 </body>
+<!-- 
+COISAS PRA FAZER AQUI:
+- Mudar a Fonte do Texto das caixas
+- Colocar uma borda preta envolta das letras pra caso o fundo seja branco tbm 
+- Criar o texto explicando o que sao elementos la na caixa principal
+- Criar os textos de cada elemento / adicionar novos ali
+
+
+
+-->
 </html>
