@@ -28,10 +28,10 @@
             min-height: 100vh;
         }
 
-        /* Estilos adicionais para a seção interativa */
+        /* Estilos para as seções interativas */
         .interactive-section {
             display: flex;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 50px 0;
             text-align: center;
             background-color: #f5f5f5;
@@ -39,7 +39,7 @@
             border-radius: 20px;
             justify-content: center;
             align-items: center;
-            width: 40%;
+            width: 80%;
             max-width: 1200px;
         }
         
@@ -125,6 +125,34 @@
             padding: 15px;
             border-radius: 8px;
         }
+
+        /* Estilo para os títulos das seções */
+        .section-title {
+            text-align: center;
+            margin: 30px 0 10px;
+            font-size: 2rem;
+            font-family: 'vcr';
+            color: #650aaf;
+            text-shadow: 
+        0 0 2px #000000,
+        0 0 2px #000000,
+        0 0 2px #000000,
+        0 0 2px #000000;
+            margin-bottom: 15px;
+    line-height: 1.5;
+        }
+
+        .element-text {
+            color: rgb(0, 0, 0);
+    font-family: 'roboto';
+    text-shadow: 
+        0 0 2px #000000,
+        0 0 2px #000000,
+        0 0 2px #ffffff,
+        0 0 2px #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.5;
+        }
     </style>
 </head>
 <body>
@@ -143,49 +171,200 @@
         <section>
             <div class="caixa-principal">
                 <!-- Conteúdo principal aqui -->
+                 <p>Em construçao 👽</p>
             </div>
         </section>
         
-        <!-- Seção interativa com scroll -->
-        <section class="interactive-section" id="interactive-section">
+        <h2 class="section-title">Elementos Primários</h2>
+        <!-- Primeira seção interativa com scroll -->
+        <section class="interactive-section" id="section-1">
             <div class="scroll-container">
                 <div class="content-container">
                     <!-- Item 1 -->
                     <div class="content-item active" data-bg-color="#f45c04">
                         <img src="images/elements/fire.png" alt="Imagem 1" class="color-source">
                         <h2>FIRE</h2>
-                        <p>mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa mucho massa</p>
+                        <p class="element-text"> 
+
+                        </p>
                     </div>
                     
                     <!-- Item 2 -->
                     <div class="content-item" data-bg-color="#2e5c6d">
                         <img src="images/elements/water.png" alt="Imagem 2" class="color-source">
                         <h2>WATER</h2>
-                        <p>O elemento do fogo representa a transformação, a paixão e a destruição criativa.</p>
+                        <p class="element-text">
+
+                        </p>
                     </div>
                     
                     <!-- Item 3 -->
-                    <div class="content-item" data-bg-color="#2e5c6d">
+                    <div class="content-item" data-bg-color="#4a6d3a">
                         <img src="images/elements/leaf.png" alt="Imagem 3" class="color-source">
                         <h2>LEAF</h2>
-                        <p>A água adapta-se a qualquer forma, simbolizando a emoção e a intuição profunda.</p>
+                        <p class="element-text">
+                            
+                        </p>
                     </div>
                     
                     <!-- Item 4 -->
-                    <div class="content-item" data-bg-color="#4a6d3a">
-                        <img src="images/elements/nexus.png" alt="Imagem 4" class="color-source">
-                        <h2>Terra Estável</h2>
-                        <p>Sólida e confiável, a terra oferece fundamento para todos os outros elementos.</p>
+                    <div class="content-item" data-bg-color="#7c3a4a">
+                        <img src="images/elements/eletric.png" alt="Imagem 4" class="color-source">
+                        <h2>ELETRIC</h2>
+                        <p class="element-text">
+
+                        </p>
+                    </div>
+
+                    <div class="content-item active" data-bg-color="#6d3a2e">
+                        <img src="images/elements/blade.png" alt="Imagem 1" class="color-source">
+                        <h2>BLADE</h2>
+                        <p class="element-text"></p>
                     </div>
                     
-                    <!-- Item 5 -->
-                    <div class="content-item" data-bg-color="#7c3a4a">
-                        <img src="images/elements/placeholder.png" alt="Imagem 5" class="color-source">
-                        <h2>Energia Pura</h2>
-                        <p>A quintessência que conecta todos os elementos em perfeito equilíbrio.</p>
+                    <!-- Item 2 -->
+                    <div class="content-item" data-bg-color="#3a4a7c">
+                        <img src="images/elements/rock.png" alt="Imagem 2" class="color-source">
+                        <h2>ROCK</h2>
+                        <p class="element-text"></p>
                     </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="content-item" data-bg-color="#5c3a6d">
+                        <img src="images/elements/mind.png" alt="Imagem 3" class="color-source">
+                        <h2 class="element-text">MIND</h2>
+                        <p>.</p>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="content-item" data-bg-color="#7c3a5c">
+                        <img src="images/elements/heart.png" alt="Imagem 4" class="color-source">
+                        <h2 class="element-text">HEART</h2>
+                        <p></p>
+                    </div>
+
+                    <div class="content-item active" data-bg-color="#4a3a6d">
+                        <img src="images/elements/null.png" alt="Imagem 1" class="color-source">
+                        <h2>NULL</h2>
+                        <p class="element-text"></p>
+                    </div>
+
                 </div>
-                
+                <div class="scroll-bar">
+                    <div class="scroll-thumb"></div>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-title">Elementos Secundários</h2>
+        <!-- Segunda seção interativa com scroll -->
+        <section class="interactive-section" id="section-2">
+            <div class="scroll-container">
+                <div class="content-container">
+                    <!-- Item 1 -->
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/nexus.png" alt="Imagem 2" class="color-source">
+                        <h2>NEXUS</h2>
+                        <p class="element-text">O elemento nexus simboliza a conexão entre todos os elementos.</p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/xray.png" alt="Imagem 2" class="color-source">
+                        <h2>X-RAY</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/infinity.png" alt="Imagem 2" class="color-source">
+                        <h2>INFINITY</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/cursed.png" alt="Imagem 2" class="color-source">
+                        <h2>CURSED</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/divine.png" alt="Imagem 2" class="color-source">
+                        <h2>DIVINE</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/huey.png" alt="Imagem 2" class="color-source">
+                        <h2>HUEY</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/ink.png" alt="Imagem 2" class="color-source">
+                        <h2>INK</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/cascade.png" alt="Imagem 2" class="color-source">
+                        <h2>CASCADE</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/mono.png" alt="Imagem 2" class="color-source">
+                        <h2>MONO</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/" alt="Imagem 2" class="color-source">
+                        <h2></h2>
+                        <p class="element-text"></p>
+                    </div>
+
+
+                    
+                </div>
+                <div class="scroll-bar">
+                    <div class="scroll-thumb"></div>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-title">Elementos Especiais</h2>
+        <!-- Terceira seção interativa com scroll -->
+        <section class="interactive-section" id="section-3">
+            <div class="scroll-container">
+                <div class="content-container">
+
+                    
+                    <div class="content-item" data-bg-color="#3a6d6d">
+                        <img src="images/elements/mantocinese.png" alt="Imagem 4" class="color-source">
+                        <h2>MANTOCINESE</h2>
+                        <p class="element-text"></p>
+                    </div>
+                    
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/placeholder.png" alt="Imagem 2" class="color-source">
+                        <h2>TALOMANCIA</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/placeholder.png" alt="Imagem 2" class="color-source">
+                        <h2>ANOMALISMO</h2>
+                        <p class="element-text"></p>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#3a6d5c">
+                        <img src="images/elements/placeholder.png" alt="Imagem 2" class="color-source">
+                        <h2>VESSEL</h2>
+                        <p class="element-text"></p>
+                    </div>
+                    
+                    
+                </div>
                 <div class="scroll-bar">
                     <div class="scroll-thumb"></div>
                 </div>
@@ -195,137 +374,135 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const scrollThumb = document.querySelector('.scroll-thumb');
-            const scrollBar = document.querySelector('.scroll-bar');
-            const contentItems = document.querySelectorAll('.content-item');
-            const interactiveSection = document.getElementById('interactive-section');
-            const containerHeight = document.querySelector('.scroll-container').offsetHeight;
-            const thumbHeight = scrollThumb.offsetHeight;
-            const maxScroll = containerHeight - thumbHeight;
-            const colorThief = new ColorThief();
-            
-            let isDragging = false;
-            
-            // Função para escurecer uma cor (hex)
-            function darkenColor(hex, percent) {
-                hex = hex.replace(/^\#/, '');
-                const r = parseInt(hex.substring(0, 2), 16);
-                const g = parseInt(hex.substring(2, 4), 16);
-                const b = parseInt(hex.substring(4, 6), 16);
-                const darkenedR = Math.max(0, Math.floor(r * (1 - percent/100)));
-                const darkenedG = Math.max(0, Math.floor(g * (1 - percent/100)));
-                const darkenedB = Math.max(0, Math.floor(b * (1 - percent/100)));
-                return `#${darkenedR.toString(16).padStart(2, '0')}${darkenedG.toString(16).padStart(2, '0')}${darkenedB.toString(16).padStart(2, '0')}`;
-            }
-            
-            // Função para converter RGB para HEX
-            function rgbToHex(r, g, b) {
-                return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-            }
-            
-            // Aplica sombra colorida baseada na cor dominante da imagem
-            function applyColorfulShadow(imgElement) {
-                try {
-                    const dominantColor = colorThief.getColor(imgElement);
-                    const hexColor = rgbToHex(dominantColor[0], dominantColor[1], dominantColor[2]);
-                    imgElement.style.boxShadow = `0 10px 20px ${hexColor}`;
-                    
-                    // Atualiza também a cor de fundo do item
-                    const parentItem = imgElement.closest('.content-item');
-                    parentItem.setAttribute('data-bg-color', hexColor);
-                    
-                    // Se for o item ativo, atualiza o fundo da seção
-                    if (parentItem.classList.contains('active')) {
-                        const darkenedColor = darkenColor(hexColor, 20);
-                        interactiveSection.style.backgroundColor = darkenedColor;
-                    }
-                } catch (e) {
-                    console.log("Erro ao processar cor da imagem:", e);
-                }
-            }
-            
-            // Função para atualizar o conteúdo visível
-            function updateContent(position) {
-                const itemCount = contentItems.length;
-                const itemHeight = maxScroll / (itemCount - 1);
-                const activeIndex = Math.round(position / itemHeight);
+            // Inicializa todas as seções interativas
+            initializeInteractiveSection('section-1');
+            initializeInteractiveSection('section-2');
+            initializeInteractiveSection('section-3');
+
+            // Função para inicializar uma seção interativa
+            function initializeInteractiveSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                const scrollThumb = section.querySelector('.scroll-thumb');
+                const scrollBar = section.querySelector('.scroll-bar');
+                const contentItems = section.querySelectorAll('.content-item');
+                const containerHeight = section.querySelector('.scroll-container').offsetHeight;
+                const thumbHeight = scrollThumb.offsetHeight;
+                const maxScroll = containerHeight - thumbHeight;
+                const colorThief = new ColorThief();
                 
-                contentItems.forEach((item, index) => {
-                    const isActive = index === activeIndex;
-                    item.classList.toggle('active', isActive);
-                    
-                    if (isActive) {
-                        const bgColor = item.getAttribute('data-bg-color');
-                        const darkenedColor = darkenColor(bgColor, 20);
-                        interactiveSection.style.backgroundColor = darkenedColor;
+                let isDragging = false;
+                
+                // Função para escurecer uma cor (hex)
+                function darkenColor(hex, percent) {
+                    hex = hex.replace(/^\#/, '');
+                    const r = parseInt(hex.substring(0, 2), 16);
+                    const g = parseInt(hex.substring(2, 4), 16);
+                    const b = parseInt(hex.substring(4, 6), 16);
+                    const darkenedR = Math.max(0, Math.floor(r * (1 - percent/100)));
+                    const darkenedG = Math.max(0, Math.floor(g * (1 - percent/100)));
+                    const darkenedB = Math.max(0, Math.floor(b * (1 - percent/100)));
+                    return `#${darkenedR.toString(16).padStart(2, '0')}${darkenedG.toString(16).padStart(2, '0')}${darkenedB.toString(16).padStart(2, '0')}`;
+                }
+                
+                // Função para converter RGB para HEX
+                function rgbToHex(r, g, b) {
+                    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+                }
+                
+                // Aplica sombra colorida baseada na cor dominante da imagem
+                function applyColorfulShadow(imgElement) {
+                    try {
+                        const dominantColor = colorThief.getColor(imgElement);
+                        const hexColor = rgbToHex(dominantColor[0], dominantColor[1], dominantColor[2]);
+                        imgElement.style.boxShadow = `0 10px 20px ${hexColor}`;
                         
-                        // Aplica sombra na imagem ativa
-                        const img = item.querySelector('img');
-                        if (img.complete) {
-                            applyColorfulShadow(img);
+                        // Atualiza também a cor de fundo do item
+                        const parentItem = imgElement.closest('.content-item');
+                        parentItem.setAttribute('data-bg-color', hexColor);
+                        
+                        // Se for o item ativo, atualiza o fundo da seção
+                        if (parentItem.classList.contains('active')) {
+                            const darkenedColor = darkenColor(hexColor, 20);
+                            section.style.backgroundColor = darkenedColor;
                         }
+                    } catch (e) {
+                        console.log("Erro ao processar cor da imagem:", e);
                     }
-                });
-            }
-            
-            // Processa todas as imagens para aplicar sombras coloridas
-            document.querySelectorAll('.color-source').forEach(img => {
-                if (img.complete) {
-                    applyColorfulShadow(img);
-                } else {
-                    img.addEventListener('load', function() {
-                        applyColorfulShadow(this);
+                }
+                
+                // Função para atualizar o conteúdo visível
+                function updateContent(position) {
+                    const itemCount = contentItems.length;
+                    const itemHeight = maxScroll / (itemCount - 1);
+                    const activeIndex = Math.round(position / itemHeight);
+                    
+                    contentItems.forEach((item, index) => {
+                        const isActive = index === activeIndex;
+                        item.classList.toggle('active', isActive);
+                        
+                        if (isActive) {
+                            const bgColor = item.getAttribute('data-bg-color');
+                            const darkenedColor = darkenColor(bgColor, 20);
+                            section.style.backgroundColor = darkenedColor;
+                            
+                            // Aplica sombra na imagem ativa
+                            const img = item.querySelector('img');
+                            if (img.complete) {
+                                applyColorfulShadow(img);
+                            }
+                        }
                     });
                 }
-            });
-            
-            // Evento de mouse down no thumb
-            scrollThumb.addEventListener('mousedown', function(e) {
-                isDragging = true;
-                scrollThumb.style.cursor = 'grabbing';
-                e.preventDefault();
-            });
-            
-            // Evento de mouse move no documento
-            document.addEventListener('mousemove', function(e) {
-                if (!isDragging) return;
                 
-                const containerRect = scrollBar.getBoundingClientRect();
-                let newTop = e.clientY - containerRect.top - (thumbHeight / 2);
-                newTop = Math.max(0, Math.min(maxScroll, newTop));
-                scrollThumb.style.top = newTop + 'px';
-                updateContent(newTop);
-            });
-            
-            // Evento de mouse up no documento
-            document.addEventListener('mouseup', function() {
-                isDragging = false;
-                scrollThumb.style.cursor = 'grab';
-            });
-            
-            // Evento de wheel no container
-            document.querySelector('.scroll-container').addEventListener('wheel', function(e) {
-                e.preventDefault();
-                const currentTop = parseInt(scrollThumb.style.top) || 0;
-                let newTop = currentTop + e.deltaY * 0.5;
-                newTop = Math.max(0, Math.min(maxScroll, newTop));
-                scrollThumb.style.top = newTop + 'px';
-                updateContent(newTop);
-            });
-            
-            // Inicializar com o primeiro item ativo
-            updateContent(0);
+                // Processa todas as imagens para aplicar sombras coloridas
+                section.querySelectorAll('.color-source').forEach(img => {
+                    if (img.complete) {
+                        applyColorfulShadow(img);
+                    } else {
+                        img.addEventListener('load', function() {
+                            applyColorfulShadow(this);
+                        });
+                    }
+                });
+                
+                // Evento de mouse down no thumb
+                scrollThumb.addEventListener('mousedown', function(e) {
+                    isDragging = true;
+                    scrollThumb.style.cursor = 'grabbing';
+                    e.preventDefault();
+                });
+                
+                // Evento de mouse move no documento
+                document.addEventListener('mousemove', function(e) {
+                    if (!isDragging) return;
+                    
+                    const containerRect = scrollBar.getBoundingClientRect();
+                    let newTop = e.clientY - containerRect.top - (thumbHeight / 2);
+                    newTop = Math.max(0, Math.min(maxScroll, newTop));
+                    scrollThumb.style.top = newTop + 'px';
+                    updateContent(newTop);
+                });
+                
+                // Evento de mouse up no documento
+                document.addEventListener('mouseup', function() {
+                    isDragging = false;
+                    scrollThumb.style.cursor = 'grab';
+                });
+                
+                // Evento de wheel no container
+                section.querySelector('.scroll-container').addEventListener('wheel', function(e) {
+                    e.preventDefault();
+                    const currentTop = parseInt(scrollThumb.style.top) || 0;
+                    let newTop = currentTop + e.deltaY * 0.5;
+                    newTop = Math.max(0, Math.min(maxScroll, newTop));
+                    scrollThumb.style.top = newTop + 'px';
+                    updateContent(newTop);
+                });
+                
+                // Inicializar com o primeiro item ativo
+                updateContent(0);
+            }
         });
     </script>
 </body>
-<!-- 
-COISAS PRA FAZER AQUI:
-- Mudar a Fonte do Texto das caixas
-- Colocar uma borda preta envolta das letras pra caso o fundo seja branco tbm 
-- Criar o texto explicando o que sao elementos la na caixa principal
-- Criar os textos de cada elemento / adicionar novos ali
-
-
-
--->
 </html>
