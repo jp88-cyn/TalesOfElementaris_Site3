@@ -11,6 +11,7 @@
 :root {
     --fontpadrao--: 'roboto';
     --fontheader--: 'vcr';
+    --roxopadrao--: #6726cf;
 }
 
 /* Reset básico */
@@ -108,7 +109,7 @@ main::before {
 }
 
 p {
-    color: rgb(113, 56, 219);
+    color: var(--roxopadrao--);
     font-family: 'roboto';
     text-shadow: 
         0 0 2px #ffffff,
@@ -254,5 +255,23 @@ ul p {
     }
 
 
+    /* Scrollbar Styles */
+    ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #eeeaea;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--roxopadrao--);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8e6dcc;
+        }
 
 
