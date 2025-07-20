@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Tales of Elementaris</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
@@ -14,11 +14,9 @@
             box-sizing: border-box;
         }
         
-        /* Layout principal como coluna */
+        /* Layout principal */
         body {
             display: block;
-            align-items: center;
-            justify-content: center;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -26,33 +24,61 @@
             overflow-x: hidden;
         }
 
+        /* Header original */
+        .caixa-header {
+            background-color: #650aaf;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: inline-block;
+        }
+
+        .links-nav {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 0 15px;
+            font-family: 'vcr', sans-serif;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .links-nav:hover {
+            color: #686868;
+        }
+
         main {
             display: block;
-            align-items: center;
-            justify-content: flex-start;
             width: 100%;
         }
 
         .caixa-principal {
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
             font-size: 1rem;
             line-height: 1.5;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* Estilos para as seções interativas */
         .interactive-section {
             display: flex;
-            margin: 20px auto;
-            padding: 30px 0;
+            margin: 40px auto;
+            padding: 50px 0;
             text-align: center;
             background-color: #f5f5f5;
             transition: background-color 0.5s ease;
             border-radius: 20px;
             justify-content: center;
             align-items: center;
-            width: 95%;
+            width: 90%;
             max-width: 1200px;
+            position: relative;
         }
         
         .scroll-container {
@@ -60,22 +86,20 @@
             max-width: 800px;
             margin: 0 auto;
             height: auto;
-            min-height: 400px;
+            min-height: 500px;
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            -webkit-overflow-scrolling: touch;
         }
         
         .scroll-bar {
-            width: 8px;
+            width: 10px;
             height: 100%;
             background: rgba(0,0,0,0.1);
             position: absolute;
             right: 0;
             top: 0;
             border-radius: 0 12px 12px 0;
-            display: none; /* Oculto por padrão em mobile */
         }
         
         .scroll-thumb {
@@ -94,25 +118,21 @@
         }
         
         .content-container {
-            width: 100%;
+            width: calc(100% - 30px);
             height: 100%;
+            padding-right: 30px;
             overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
         }
         
         .content-item {
             width: 100%;
-            min-height: 400px;
-            height: 100%;
+            min-height: 500px;
             display: none;
             align-items: center;
             justify-content: flex-start;
             flex-direction: column;
-            padding: 20px;
+            padding: 30px;
             box-sizing: border-box;
-            scroll-snap-align: start;
         }
         
         .content-item.active {
@@ -120,28 +140,28 @@
         }
         
         .content-item img {
-            max-width: 90%;
-            max-height: 200px;
-            margin-bottom: 15px;
+            max-width: 100%;
+            max-height: 300px;
+            margin-bottom: 20px;
             border-radius: 8px;
             border: 2px solid rgba(255,255,255,0.2);
             transition: box-shadow 0.5s ease;
         }
         
         .content-item h2 {
-            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-size: 28px;
             margin-bottom: 15px;
             color: #fff;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         .content-item p {
-            font-size: clamp(0.9rem, 3vw, 1rem);
+            font-size: 16px;
             color: rgba(255,255,255,0.9);
             max-width: 600px;
             line-height: 1.6;
             background: rgba(0,0,0,0.3);
-            padding: 12px;
+            padding: 15px;
             border-radius: 8px;
             width: 100%;
             margin-bottom: 10px;
@@ -150,8 +170,8 @@
         /* Estilo para os títulos das seções */
         .section-title {
             text-align: center;
-            margin: 20px 0 10px;
-            font-size: clamp(1.5rem, 6vw, 2rem);
+            margin: 50px 0 20px;
+            font-size: 2rem;
             font-family: 'vcr';
             color: #650aaf;
             text-shadow: 
@@ -160,7 +180,6 @@
                 0 0 2px #000000,
                 0 0 2px #000000;
             line-height: 1.5;
-            padding: 0 10px;
         }
 
         .element-text {
@@ -181,51 +200,94 @@
             flex-direction: column;
             align-items: center;
             flex-grow: 1;
+            overflow-y: auto;
+            max-height: 300px;
+            padding-right: 10px;
         }
 
-        /* Header mobile */
-        .caixa-header {
-            padding: 10px;
-        }
-
-        .nav-links {
+        /* Botões de navegação */
+        .nav-buttons {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
         }
 
-        .links-nav {
-            padding: 8px 12px;
-            font-size: 0.9rem;
+        .nav-button {
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
 
-        /* Melhorias para touch */
-        button, a {
-            min-width: 44px;
-            min-height: 44px;
+        .nav-button:hover {
+            background-color: rgba(0,0,0,0.7);
         }
 
-        /* Mostrar scrollbar apenas em desktop */
-        @media (min-width: 768px) {
-            .scroll-bar {
-                display: block;
+        /* Estilos específicos para mobile */
+        @media (max-width: 768px) {
+            .caixa-header {
+                padding: 15px 0;
             }
-            
-            .content-container {
-                width: calc(100% - 30px);
-                padding-right: 30px;
-                overflow-y: hidden;
-                scroll-snap-type: none;
+
+            .links-nav {
+                font-size: 16px;
+                margin: 0 10px;
             }
-            
+
+            .interactive-section {
+                width: 95%;
+                padding: 30px 0;
+                margin: 20px auto;
+            }
+
+            .scroll-container {
+                min-height: 400px;
+            }
+
             .content-item {
-                min-height: 500px;
-                padding: 30px;
+                min-height: 400px;
+                padding: 20px;
             }
-            
+
             .content-item img {
-                max-height: 300px;
+                max-height: 200px;
+            }
+
+            .content-item h2 {
+                font-size: 24px;
+            }
+
+            .content-item p {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .text-content {
+                max-height: 250px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin: 30px 0 15px;
+            }
+        }
+
+        /* Esconde elementos específicos em desktop/mobile */
+        .mobile-only {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+            .mobile-only {
+                display: block;
             }
         }
     </style>
@@ -320,6 +382,10 @@
                                 WATER
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
                     
                     <!-- Item 2 -->
@@ -352,6 +418,10 @@
                                 OPRESSOR:<br>
                                 LEAF
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
                     
@@ -386,6 +456,10 @@
                                 BLADE
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
                     
                     <!-- Item 4 -->
@@ -419,6 +493,10 @@
                                 MIND
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#6c6c6c">
@@ -450,6 +528,10 @@
                                 OPRESSOR:<br>
                                 FIRE
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
                     
@@ -485,6 +567,10 @@
                                 ELETRIC
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
                     
                     <!-- Item 7 -->
@@ -517,6 +603,10 @@
                                 OPRESSOR:<br>
                                 HEART
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
                     
@@ -551,6 +641,10 @@
                                 ROCK
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#948c7d">
@@ -584,9 +678,13 @@
                                 Nao Possui, pois é neutro em tudo.
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
                 </div>
-                <div class="scroll-bar">
+                <div class="scroll-bar desktop-only">
                     <div class="scroll-thumb"></div>
                 </div>
             </div>
@@ -625,6 +723,10 @@
                                 INFINITY
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#169456">
@@ -652,6 +754,10 @@
                                 OPRESSOR:<br>
                                 INK
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
 
@@ -681,6 +787,10 @@
                                 CASCADE
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#340909">
@@ -709,6 +819,10 @@
                                 DIVINE
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#efcf5a">
@@ -736,6 +850,10 @@
                                 OPRESSOR:<br>
                                 X-RAY
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
 
@@ -766,6 +884,10 @@
                                 MEU DAD ( Cursed )
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#5f538d">
@@ -793,6 +915,10 @@
                                 OPRESSOR:<br>
                                 HUEY
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
 
@@ -823,6 +949,10 @@
                                 NEXUS
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#1b1c1c">
@@ -852,9 +982,13 @@
                                 Nenhum, ele é neutro.
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
                 </div>
-                <div class="scroll-bar">
+                <div class="scroll-bar desktop-only">
                     <div class="scroll-thumb"></div>
                 </div>
             </div>
@@ -891,6 +1025,10 @@
                                 MANTOCINESE
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#141414">
@@ -918,6 +1056,10 @@
                                 OPRESSOR:<br>
                                 TALOMANCIA.
                             </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
                         </div>
                     </div>
 
@@ -950,6 +1092,10 @@
                                 OBS: Deslize para ver o último elemento
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
 
                     <div class="content-item" data-bg-color="#6b6a6b">
@@ -969,9 +1115,13 @@
                                 Honest
                             </p>
                         </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
                     </div>
                 </div>
-                <div class="scroll-bar">
+                <div class="scroll-bar desktop-only">
                     <div class="scroll-thumb"></div>
                 </div>
             </div>
@@ -996,16 +1146,16 @@
                 const contentItems = section.querySelectorAll('.content-item');
                 const container = section.querySelector('.scroll-container');
                 const contentContainer = section.querySelector('.content-container');
+                const prevButtons = section.querySelectorAll('.prev-btn');
+                const nextButtons = section.querySelectorAll('.next-btn');
                 
                 let isDragging = false;
                 let startY, scrollTop;
+                let currentIndex = 0;
                 
                 // Função para calcular a altura do container
                 function calculateContainerHeight() {
-                    let maxHeight = 400; // Altura mínima para mobile
-                    if (!isMobile) {
-                        maxHeight = 500; // Altura maior para desktop
-                    }
+                    let maxHeight = isMobile ? 400 : 500;
                     
                     contentItems.forEach(item => {
                         if (item.offsetHeight > maxHeight) {
@@ -1045,71 +1195,54 @@
                     section.style.backgroundColor = darkenedColor;
                 }
                 
-                // Função para atualizar o conteúdo visível baseado no scroll
-                function updateContentFromScroll() {
-                    const containerHeight = calculateContainerHeight();
-                    const scrollPosition = contentContainer.scrollTop;
-                    const itemHeight = containerHeight;
-                    const activeIndex = Math.round(scrollPosition / itemHeight);
+                // Função para mostrar um item específico
+                function showItem(index) {
+                    // Garante que o índice esteja dentro dos limites
+                    index = Math.max(0, Math.min(contentItems.length - 1, index));
+                    currentIndex = index;
                     
-                    contentItems.forEach((item, index) => {
-                        const isActive = index === activeIndex;
-                        item.classList.toggle('active', isActive);
-                        
-                        if (isActive) {
-                            applyManualColors();
-                        }
+                    // Esconde todos os itens
+                    contentItems.forEach(item => {
+                        item.classList.remove('active');
                     });
-                }
-                
-                // Função para rolar para um item específico
-                function scrollToItem(index) {
-                    const containerHeight = calculateContainerHeight();
-                    contentContainer.scrollTo({
-                        top: index * containerHeight,
-                        behavior: 'smooth'
-                    });
-                }
-                
-                // Eventos para desktop
-                if (!isMobile) {
-                    // Mostra a scrollbar apenas em desktop
-                    scrollBar.style.display = 'block';
                     
-                    // Função para atualizar o conteúdo visível
-                    function updateContent(position) {
+                    // Mostra o item atual
+                    contentItems[index].classList.add('active');
+                    
+                    // Aplica as cores
+                    applyManualColors();
+                    
+                    // Atualiza a posição do scroll em desktop
+                    if (!isMobile) {
                         const containerHeight = calculateContainerHeight();
                         const thumbHeight = scrollThumb.offsetHeight;
                         const maxScroll = containerHeight - thumbHeight;
-                        
-                        const itemCount = contentItems.length;
-                        const itemHeight = maxScroll / (itemCount - 1);
-                        const activeIndex = Math.round(position / itemHeight);
-                        
-                        contentItems.forEach((item, index) => {
-                            const isActive = index === activeIndex;
-                            item.classList.toggle('active', isActive);
-                            
-                            if (isActive) {
-                                applyManualColors();
-                            }
-                        });
-                    }
-                    
-                    // Função para atualizar a posição do thumb
-                    function updateThumbPosition() {
-                        const containerHeight = calculateContainerHeight();
-                        const thumbHeight = scrollThumb.offsetHeight;
-                        const maxScroll = containerHeight - thumbHeight;
-                        
-                        const scrollPosition = parseFloat(scrollThumb.style.top) || 0;
-                        const activeIndex = Math.round(scrollPosition / (maxScroll / (contentItems.length - 1)));
-                        
-                        // Garante que o thumb não saia dos limites
-                        const newTop = Math.max(0, Math.min(maxScroll, activeIndex * (maxScroll / (contentItems.length - 1))));
+                        const newTop = index * (maxScroll / (contentItems.length - 1));
                         scrollThumb.style.top = newTop + 'px';
                     }
-                    
+                }
+                
+                // Função para ir para o próximo item
+                function nextItem() {
+                    showItem(currentIndex + 1);
+                }
+                
+                // Função para ir para o item anterior
+                function prevItem() {
+                    showItem(currentIndex - 1);
+                }
+                
+                // Adiciona eventos aos botões de navegação
+                prevButtons.forEach(btn => {
+                    btn.addEventListener('click', prevItem);
+                });
+                
+                nextButtons.forEach(btn => {
+                    btn.addEventListener('click', nextItem);
+                });
+                
+                // Comportamento para desktop
+                if (!isMobile) {
                     // Evento de mouse down no thumb
                     scrollThumb.addEventListener('mousedown', function(e) {
                         isDragging = true;
@@ -1129,7 +1262,10 @@
                         let newTop = e.clientY - containerRect.top - (thumbHeight / 2);
                         newTop = Math.max(0, Math.min(maxScroll, newTop));
                         scrollThumb.style.top = newTop + 'px';
-                        updateContent(newTop);
+                        
+                        // Atualiza o item ativo baseado na posição do thumb
+                        const activeIndex = Math.round(newTop / (maxScroll / (contentItems.length - 1)));
+                        showItem(activeIndex);
                     });
                     
                     // Evento de mouse up no documento
@@ -1149,11 +1285,35 @@
                         let newTop = currentTop + e.deltaY * 0.5;
                         newTop = Math.max(0, Math.min(maxScroll, newTop));
                         scrollThumb.style.top = newTop + 'px';
-                        updateContent(newTop);
+                        
+                        // Atualiza o item ativo
+                        const activeIndex = Math.round(newTop / (maxScroll / (contentItems.length - 1)));
+                        showItem(activeIndex);
                     });
                 } else {
-                    // Comportamento para mobile
-                    contentContainer.addEventListener('scroll', updateContentFromScroll);
+                    // Comportamento para mobile - scroll nativo
+                    contentContainer.style.overflowY = 'auto';
+                    contentContainer.style.scrollSnapType = 'y mandatory';
+                    
+                    // Ajusta cada item para snap
+                    contentItems.forEach(item => {
+                        item.style.scrollSnapAlign = 'start';
+                    });
+                    
+                    // Atualiza o item ativo quando o usuário para de scrollar
+                    contentContainer.addEventListener('scroll', function() {
+                        const containerHeight = calculateContainerHeight();
+                        const scrollPosition = contentContainer.scrollTop;
+                        const activeIndex = Math.round(scrollPosition / containerHeight);
+                        currentIndex = activeIndex;
+                        
+                        // Atualiza as classes active
+                        contentItems.forEach((item, index) => {
+                            item.classList.toggle('active', index === activeIndex);
+                        });
+                        
+                        applyManualColors();
+                    });
                     
                     // Adiciona eventos de toque para navegação por swipe
                     let touchStartY = 0;
@@ -1174,16 +1334,20 @@
                         
                         if (Math.abs(diff) < threshold) return;
                         
-                        const containerHeight = calculateContainerHeight();
-                        const currentScroll = contentContainer.scrollTop;
-                        const currentIndex = Math.round(currentScroll / containerHeight);
-                        
                         if (diff > 0 && currentIndex < contentItems.length - 1) {
                             // Swipe para cima - próximo item
-                            scrollToItem(currentIndex + 1);
+                            nextItem();
+                            contentContainer.scrollTo({
+                                top: (currentIndex) * calculateContainerHeight(),
+                                behavior: 'smooth'
+                            });
                         } else if (diff < 0 && currentIndex > 0) {
                             // Swipe para baixo - item anterior
-                            scrollToItem(currentIndex - 1);
+                            prevItem();
+                            contentContainer.scrollTo({
+                                top: (currentIndex) * calculateContainerHeight(),
+                                behavior: 'smooth'
+                            });
                         }
                     }
                 }
@@ -1203,7 +1367,10 @@
                 const resizeObserver = new ResizeObserver(() => {
                     calculateContainerHeight();
                     if (!isMobile) {
-                        updateThumbPosition();
+                        const containerHeight = calculateContainerHeight();
+                        const thumbHeight = scrollThumb.offsetHeight;
+                        const maxScroll = containerHeight - thumbHeight;
+                        scrollThumb.style.top = currentIndex * (maxScroll / (contentItems.length - 1)) + 'px';
                     }
                 });
                 
@@ -1213,13 +1380,7 @@
                 
                 // Inicializar com o primeiro item ativo
                 calculateContainerHeight();
-                applyManualColors();
-                
-                if (isMobile) {
-                    updateContentFromScroll();
-                } else {
-                    updateContent(0);
-                }
+                showItem(0);
             }
         });
     </script>
