@@ -3,14 +3,14 @@ COISAS PRA TERMINAR / FAZER
 
 --TERMINAR---
 
-- Lista de Elementos e suas bios
-- Simbolo de alguns Elementos
-- Explicaçoes sobre o que é elementos do vessel
-- Terminar a pagina do Sobre
-- compatibilidade com a tela dos conectados pra celular ( flex wrap maybe )
+- Lista de Elementos e suas bios ✅
+- Simbolo de alguns Elementos 
+- Explicaçoes sobre o que é elementos do vessel ✅
+- Terminar a pagina do Sobre 
+- compatibilidade com a tela dos conectados pra celular ( flex wrap maybe ) 
 - compatibilidade 
-
-
+- Colocar na area de elementos a opçao de Elementos Complentmentares / Combinaçoes
+- Cor da Barra de texto dos elementos estar com a mesma cor do elemento ou pelo menos diferente.
 
 
 
@@ -20,7 +20,7 @@ COISAS PRA TERMINAR / FAZER
 - Melhoria em Geral na parte Visual inteira do Site para ficar tudo mais padronizado ( ajuda do Deepseek provavelmente )
 - Exemplos de Visual: Barra Lateral de Scroll, Mouse ( talvez ), Sons Personalizados e musica de fundo junto 
 - Pagina de Playlist dos personagens
-- talvez mais algum secret pelo site?
+- talvez mais algum secret pelo site? ✅
 
 - Na pagina de Sobre, ter 
 1 - Link pro Canal de elementaris

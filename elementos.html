@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* Header original */
+        /* Header original 
         .caixa-header {
             background-color: #650aaf;
             padding: 20px 0;
@@ -48,8 +48,9 @@
         }
 
         .links-nav:hover {
-            color: #686868;
+            
         }
+        */
 
         main {
             display: block;
@@ -277,6 +278,13 @@
             }
         }
 
+        /* Ajustes para o scroll no desktop */
+        @media not all and (max-width: 768px) {
+            .content-container {
+                overflow-y: hidden !important;
+            }
+        }
+
         /* Esconde elementos específicos em desktop/mobile */
         .mobile-only {
             display: none;
@@ -300,6 +308,7 @@
                 <a href="conectados.html" class="links-nav">Conectados</a>
                 <a href="elementos.html" class="links-nav">Elementos</a>
                 <a href="sobre.html" class="links-nav">Sobre</a>
+                <a href="playlist.html" class="links-nav">Playlist</a>
             </nav>
         </div>
     </header>
@@ -593,7 +602,7 @@
                             </p>
                             <p class="element-text">
                                 USUÁRIOS CONHECIDAS:<br>
-                                Raiko, Karlos, Wilson, Shanoa e Psych.
+                                Raiko, Karlos, Wilson, Shanoa, Psych e Geto.
                             </p>
                             <p class="element-text">
                                 ALMA:<br>
@@ -630,7 +639,7 @@
                             </p>
                             <p class="element-text">
                                 USUÁRIOS CONHECIDOS:<br>
-                                Mary, Docinho, Darlan e Milly.
+                                Mary, Docinho, Darlan, Milly e Vincenzo.
                             </p>
                             <p class="element-text">
                                 ALMA:<br>
@@ -716,7 +725,7 @@
                             </p>
                             <p class="element-text">
                                 USUÁRIOS CONHECIDOS:<br>
-                                William, Jonatham, Cesare e Shadman.
+                                William, Jonatham, Cesare, Shadman e Misaki.
                             </p>
                             <p class="element-text">
                                 OPRESSOR:<br>
@@ -748,7 +757,7 @@
                             </p>
                             <p class="element-text">
                                 USUÁRIOS CONHECIDOS:<br>
-                                Lich, Raiko, Minnie e Jack.
+                                Lich, Raiko, Minnie, Jack e Billy.
                             </p>
                             <p class="element-text">
                                 OPRESSOR:<br>
@@ -909,7 +918,7 @@
                             </p>
                             <p class="element-text">
                                 USUÁRIOS CONHECIDAS:<br>
-                                Mary, Inkfell e Docinho.
+                                Mary, Thales, Dust e Gean.
                             </p>
                             <p class="element-text">
                                 OPRESSOR:<br>
@@ -994,6 +1003,294 @@
             </div>
         </section>
 
+                <h2 class="section-title">Elementos de Combinação/Complementares/Variaçoes</h2>
+        <!-- Nova seção interativa com scroll -->
+        <section class="interactive-section" id="section-combination">
+            <div class="scroll-container">
+                <div class="content-container">
+                    <!-- Item 1 -->
+                    <div class="content-item active" data-bg-color="#ff7b00">
+                        <img src="images/elements/placeholder.png" alt="Imagem 1" class="color-source">
+                        <h2>LAVA</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinação de FIRE + ROCK. Permite ao usuário criar e controlar lava, com habilidades de alto dano e controle de área.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                LAVA RIFF
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Olhos ou cabelos em tons de laranja escuro/vermelho.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Yusune ( FUSAO )
+                            </p>
+                            <p class="element-text">
+                                OPRESSOR:<br>
+                                WATER & ELETRIC
+                            </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="content-item" data-bg-color="#ab8abf">
+                        <img src="images/elements/placeholder.png" alt="Imagem 2" class="color-source">
+                        <h2>WIND</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinação de ROCK + LEAF. Elemento que permite a Manipulaçao dos ares como criar Tempestades, Ondas de vento e muito mais.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                NENHUMA POR AGORA.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Olhos ou cabelos em tons de Roxo Claro.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Daichi.
+                            </p>
+                            <p class="element-text">
+                                OPRESSOR:<br>
+                                BLADE & ELETRIC
+                            </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="content-item" data-bg-color="#1f6b4d">
+                        <img src="images/elements/placeholder.png" alt="Imagem 3" class="color-source">
+                        <h2>POISON</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinação de HEART + WATER, Da o poder da Criaçao de Venenos Mortais usados em batalha para dar Condiçoes extremamente prejudiciais aos seus inimigos.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                Nenhuma ate agora.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Olhos ou cabelos em tons de verde Escuro.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Mei
+                            </p>
+                            <p class="element-text">
+                                OPRESSOR:<br>
+                                ROCK & LEAF
+                            </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 -->
+                    <div class="content-item" data-bg-color="#32117d">
+                        <img src="images/elements/placeholder.png" alt="Imagem 4" class="color-source">
+                        <h2>CONTROL</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinação de MIND + HEART. Permite manipulação emocional e mental avançada, com habilidades de controle mental e cura psicológica.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                Nenhuma ate agora.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Olhos ou cabelos em tons de roxo-rosado.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Isinha
+                            </p>
+                            <p class="element-text">
+                                OPRESSOR:<br>
+                                ROCK 
+                            </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 5 -->
+                    <div class="content-item" data-bg-color="#2facc2">
+                        <img src="images/elements/placeholder.png" alt="Imagem 5" class="color-source">
+                        <h2>ICE</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinação de ROCK + WATER. Da o poder da Criaçao de Gelos por toda parte, dando uma Defesa e Ataque Excelente para o usuario.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                ENTROPY ZERO, GELADA FINAR e FROST WAVE
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Olhos ou cabelos em tons de azul-claro.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Hank, Mio, Elizabeth e Serena.
+                            </p>
+                            <p class="element-text">
+                                OPRESSOR:<br>
+                                LEAF & ELETRIC
+                            </p>
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="content-item" data-bg-color="#dbbf07">
+                        <img src="images/elements/chaos.webp" alt="Imagem 6" class="color-source">
+                        <h2>CHAOS</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinaçao de MANTOCINESE + X-RAY, Dando uma Variçao deste elemento que cria Energias Caoticas capazes de fazerem o usuario ter velocidades de ataque 
+                                grandes, Com ate mesmo criaçao de fontes de energia manipulaveis.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                CHAOS CONTROL e CHAOS SPEARS.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Energia Amarela com Vermelho envolta do corpo do usuario ao usar.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Raiko.
+                            </p>
+                           
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#fc3232">
+                        <img src="images/elements/soul.png" alt="Imagem 5" class="color-source">
+                        <h2>SOUL</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Um Elemento criado do Zero para ser um COMPLEMENTAR, Onde ele explora todo o potencial da ALMA do usuario, Dando a ele poder de trocar de almas, mas
+                                nao podendo ter nenhum elemento alem dele mesmo.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                Nenhuma por Agora.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Objetos Translucidos com cores distintas ou essencia levemente diferente do normal.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Satoshi e Frisk.
+                            </p>
+                        </div> <!-- Faltava fechar esta div -->
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 6 -->
+                    <div class="content-item" data-bg-color="#b8143a">
+                        <img src="images/elements/placeholder.png" alt="Imagem 6" class="color-source">
+                        <h2>HATE</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinaçao de MANTOCINESE + CURSED + HEART, Criaçao um elemento que tem o proposito contrario de Heart, O odio dando poder ao maximo,
+                                Mexendo com a mente do usuario para dar motivaçao a ele de continuar lutando.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                GET OUR HATE.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Liquido Preto que se envolve no usuario.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                Lich e Satoshi.
+                            </p>
+                           
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+
+                    <div class="content-item" data-bg-color="#db075f">
+                        <img src="images/elements/agony2.webp" alt="Imagem 6" class="color-source">
+                        <h2>AGONY</h2>
+                        <div class="text-content">
+                            <p class="element-text">
+                                FUNÇÕES:<br>
+                                Combinaçao de MANTOCINESE + CURSED + ANOMALISMO, Criando assim um Elemento que explora a dor Apos a morte como forma de criar 
+                                espiritos que dao poder ao usuario, mas em troca acaba sendo um elemento bem dificil de se controlar.
+                            </p>
+                            <p class="element-text">
+                                HABILIDADES CONHECIDAS:<br>
+                                Nenhuma por Enquanto.
+                            </p>
+                            <p class="element-text">
+                                VISUAIS:<br>
+                                Fantasmas Roxos ou Vermelhos escuros que se envolvem no usuario.
+                            </p>
+                            <p class="element-text">
+                                USUÁRIOS CONHECIDOS:<br>
+                                William e Cassidy
+                            </p>
+                           
+                        </div>
+                        <div class="nav-buttons mobile-only">
+                            <button class="nav-button prev-btn">Anterior</button>
+                            <button class="nav-button next-btn">Próximo</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-bar desktop-only">
+                    <div class="scroll-thumb"></div>
+                </div>
+            </div>
+        </section>
+
         <h2 class="section-title">Elementos Finais ( E um Complementar )</h2>
         <!-- Terceira seção interativa com scroll -->
         <section class="interactive-section" id="section-3">
@@ -1050,7 +1347,7 @@
                             </p>
                             <p class="element-text">
                                 USUÁRIOS CONHECIDOS:<br>
-                                Lich, Raiko, William e Kitsune.
+                                Lich, Raiko, William, Kitsune e Billy.
                             </p>
                             <p class="element-text">
                                 OPRESSOR:<br>
@@ -1064,7 +1361,7 @@
                     </div>
 
                     <div class="content-item" data-bg-color="#c43bed">
-                        <img src="images/elements/placeholder.png" alt="Imagem 3" class="color-source">
+                        <img src="images/elements/anomalismo.webp" alt="Imagem 3" class="color-source">
                         <h2>ANOMALISMO</h2>
                         <div class="text-content">
                              <p class="element-text">
@@ -1089,7 +1386,6 @@
                             <p class="element-text">
                                 OPRESSOR:<br>
                                 Indefinido.
-                                OBS: Deslize para ver o último elemento
                             </p>
                         </div>
                         <div class="nav-buttons mobile-only">
@@ -1127,6 +1423,8 @@
                 </div>
             </div>
         </section>
+
+        
     </main>
 
     <script>
@@ -1138,6 +1436,7 @@
             initializeInteractiveSection('section-1', isMobile);
             initializeInteractiveSection('section-2', isMobile);
             initializeInteractiveSection('section-3', isMobile);
+            initializeInteractiveSection('section-combination', isMobile);
 
             // Função para inicializar uma seção interativa
             function initializeInteractiveSection(sectionId, isMobile) {
@@ -1275,22 +1574,29 @@
                         scrollThumb.style.cursor = 'grab';
                     });
                     
-                    // Evento de wheel no container
+                    // Evento de wheel no container - VERSÃO CORRIGIDA
                     container.addEventListener('wheel', function(e) {
                         e.preventDefault();
                         const containerHeight = calculateContainerHeight();
                         const thumbHeight = scrollThumb.offsetHeight;
                         const maxScroll = containerHeight - thumbHeight;
                         
-                        const currentTop = parseFloat(scrollThumb.style.top) || 0;
-                        let newTop = currentTop + e.deltaY * 0.5;
-                        newTop = Math.max(0, Math.min(maxScroll, newTop));
-                        scrollThumb.style.top = newTop + 'px';
+                        // Verifica se o scroll está sendo feito no container ou no contentContainer
+                        const isScrollingContainer = e.target === container;
+                        const isScrollingContent = e.target === contentContainer;
                         
-                        // Atualiza o item ativo
-                        const activeIndex = Math.round(newTop / (maxScroll / (contentItems.length - 1)));
-                        showItem(activeIndex);
-                    });
+                        // Aplica o scroll apenas se estiver no container principal
+                        if (isScrollingContainer || isScrollingContent) {
+                            const currentTop = parseFloat(scrollThumb.style.top) || 0;
+                            let newTop = currentTop + e.deltaY * 0.5;
+                            newTop = Math.max(0, Math.min(maxScroll, newTop));
+                            scrollThumb.style.top = newTop + 'px';
+                            
+                            // Atualiza o item ativo
+                            const activeIndex = Math.round(newTop / (maxScroll / (contentItems.length - 1)));
+                            showItem(activeIndex);
+                        }
+                    }, { passive: false });
                 } else {
                     // Comportamento para mobile - scroll nativo
                     contentContainer.style.overflowY = 'auto';
