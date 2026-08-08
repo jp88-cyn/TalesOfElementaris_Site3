@@ -504,12 +504,6 @@
                         downloadImage(CONFIG.larryImageUrl, CONFIG.larryImageFilename);
                     }
 
-                    if (linha.includes('ATENA RECONHECIDA')) {
-                        setTimeout(() => {
-                            window.location.href = CONFIG.athenaRedirectUrl;
-                        }, 2000);
-                    }
-
                     // REMOVIDO: o redirecionamento agora é feito pelo comando original
                     // em processCommand()
                 }
@@ -662,7 +656,6 @@
                         "AFINAL, ELA É FILHA DE UM CONECTADO",
                         "E CONECTADOS, TENDO FILHOS COM NPCS, NUNCA DÁ CERTO",
                         "ESSÊNCIAS NÃO SÃO FEITAS PARA ISSO."
-
                     ],
                     cor: 'cor-hannah'
                 };
@@ -796,8 +789,6 @@
                 };
             }
 
-            
-
             // =============================================================
             // MODELO PARA ADICIONAR NOVO PERSONAGEM
             // =============================================================
@@ -833,7 +824,7 @@
         }
 
         // =============================================================
-        // PROCESSAR COMANDO
+        // PROCESSAR COMANDO (CORRIGIDO - AGORA INCLUI ATHENA)
         // =============================================================
         async function processCommand() {
             const raw = input.value.trim();
@@ -848,14 +839,22 @@
 
             // =============================================================
             // REDIRECIONAMENTOS BASEADOS NO COMANDO ORIGINAL
-            // (independente do texto das mensagens)
             // =============================================================
             const lowerRaw = raw.toLowerCase();
+            
+            // REDIRECIONAMENTO PARA ATHENA (ADICIONADO)
+            if (lowerRaw === 'athena') {
+                setTimeout(() => {
+                    window.location.href = CONFIG.athenaRedirectUrl;
+                }, 2000);
+            }
+            
             if (lowerRaw === 'milly') {
                 setTimeout(() => {
                     window.location.href = CONFIG.millyRedirectUrl;
                 }, 2000);
             }
+            
             if (lowerRaw === 'agnes') {
                 setTimeout(() => {
                     window.location.href = CONFIG.agnesRedirectUrl;
