@@ -6,8 +6,421 @@
     <title>Tales of Elementaris</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
-    
 </head>
+<style>
+    @font-face {
+        font-family: 'roboto';
+        src: url('fonts/RobotoCondensed-Black.ttf') format('truetype');
+    }
+    @font-face {
+        font-family: 'vcr';
+        src: url('fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+    }
+
+    /* ===== VARIÁVEIS ===== */
+    :root {
+        --fontpadrao--: 'roboto';
+        --fontheader--: 'vcr';
+        --roxopadrao--: #6726cf;
+        --roxoclaro--: #8e6dcc;
+        --cinzaescuro--: #2a2a2a;
+        --branco--: #f0f0f0;
+    }
+
+    /* ===== HEADER ===== */
+    .caixa-header {
+        background: rgba(0, 0, 0, 0.6) url(videos/VideoAnotherHim.gif) center/cover;
+        background-blend-mode: overlay;
+        padding: 15px 0;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px 15px;
+    }
+
+    .links-nav {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 28px;
+        font-family: var(--fontheader--);
+        text-transform: uppercase;
+        padding: 8px 20px;
+        transition: color 0.3s, text-shadow 0.3s;
+        position: relative;
+    }
+
+    .links-nav::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: var(--roxopadrao--);
+        transition: all 0.3s;
+        transform: translateX(-50%);
+    }
+
+    .links-nav:hover {
+        color: #b48aff;
+        text-shadow: 0 0 15px rgba(103, 38, 207, 0.6);
+    }
+
+    .links-nav:hover::after {
+        width: 80%;
+    }
+
+    /* ===== MAIN ===== */
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+    }
+
+    main::before {
+        content: "";
+        background: url(images/XTaleCity.webp) no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        filter: blur(5px);
+        z-index: -1;
+    }
+
+    /* ===== CAIXA PRINCIPAL ===== */
+    .caixa-principal {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(5px);
+        border: 2px solid var(--roxopadrao--);
+        border-radius: 30px;
+        padding: 50px 40px 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        max-width: 1100px;
+        width: 94%;
+        margin: 30px auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* ===== ÍCONE FLUTUANTE ===== */
+    .icone-elementos {
+        width: 100px;
+        margin-top: -70px;
+        filter: drop-shadow(0 10px 15px rgba(103, 38, 207, 0.4));
+        animation: flutuar 3s ease-in-out infinite;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @keyframes flutuar {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* ===== DESTAQUE ===== */
+    .destaque {
+        margin: 20px 0 30px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        padding: 25px 20px 20px;
+        border: 1px solid rgba(103, 38, 207, 0.15);
+        backdrop-filter: blur(2px);
+        width: 100%;
+    }
+
+    .destaque-imagem {
+        width: 100%;
+        max-height: 380px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s, opacity 0.5s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .destaque-imagem:hover {
+        transform: scale(1.01);
+    }
+
+    .destaque-titulo {
+        font-family: var(--fontheader--);
+        font-size: 2rem;
+        color: #1a1a1a;
+        margin: 20px 0 10px;
+        letter-spacing: 1px;
+    }
+
+    .destaque-descricao {
+        font-size: 1.05rem;
+        color: #333;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+        background: rgba(255, 255, 255, 0.6);
+        padding: 12px 20px;
+        border-radius: 12px;
+        backdrop-filter: blur(2px);
+    }
+
+    /* ===== TEXTOS ===== */
+    .caixa-principal p {
+        color: #222;
+        text-shadow: none;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* ===== SEÇÃO DE SAGAS ===== */
+    .sagas-section {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+    }
+
+    .temporada {
+        margin-bottom: 10px;
+    }
+
+    .temporada-titulo {
+        font-family: var(--fontheader--);
+        font-size: 2rem;
+        padding: 8px 20px;
+        border-radius: 40px;
+        display: inline-block;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        letter-spacing: 2px;
+    }
+
+    .temporada-titulo.t1 { color: #8888; background: rgba(17, 17, 17, 0.15); border: 2px solid #8888; }
+    .temporada-titulo.t2 { color: #b40606; background: rgba(184, 84, 84, 0.15); border: 2px solid #8d1212; }
+    .temporada-titulo.t3 { color: #5112c5; background: rgba(71, 37, 194, 0.15); border: 2px solid #3e1b9e; }
+
+    .sagas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    /* ===== CARD DE SAGA ===== */
+    .saga-card {
+        border-radius: 20px;
+        padding: 25px 20px 20px;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        position: relative;
+        overflow: hidden;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        border: 2px solid rgba(255,255,255,0.2);
+        cursor: default;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: overlay;
+        background-color: rgba(0,0,0,0.35);
+    }
+
+    .saga-card:hover {
+        transform: scale(1.03) translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+    }
+
+    .saga-card .saga-titulo {
+        font-family: var(--fontheader--);
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        text-shadow: 0 0 20px rgba(0,0,0,0.8);
+        position: relative;
+        z-index: 2;
+    }
+
+    .saga-card .saga-descricao {
+        font-family: var(--fontpadrao--);
+        font-size: 0.9rem;
+        color: rgba(255,255,255,0.9);
+        text-shadow: 0 0 15px rgba(0,0,0,0.9);
+        max-width: 90%;
+        margin: 5px auto 0;
+        line-height: 1.4;
+        position: relative;
+        z-index: 2;
+        background: rgba(0,0,0,0.2);
+        padding: 4px 10px;
+        border-radius: 12px;
+    }
+
+    /* Cores dos títulos */
+    .saga-card .saga-titulo.cor1 { color: #12cae2; }
+    .saga-card .saga-titulo.cor2 { color: #ff0000; }
+    .saga-card .saga-titulo.cor3 { color: #eff2f3; }
+    .saga-card .saga-titulo.cor4 { color: #f1e468; }
+    .saga-card .saga-titulo.cor5 { color: #e6e2e2; }
+    .saga-card .saga-titulo.cor6 { color: #ffffff; }
+    .saga-card .saga-titulo.cor7 { color: #eb8541; }
+    .saga-card .saga-titulo.cor8 { color: #58bb54; }
+    .saga-card .saga-titulo.cor9 { color: #d30404; }
+    .saga-card .saga-titulo.cor10 { color: #070707; }
+    .saga-card .saga-titulo.cor11 { color: #f3efef; }
+
+    /* Fundos das sagas */
+    .saga-card.fundo1 { background-image: url('images/sagas/chaos.jpeg'); }
+    .saga-card.fundo2 { background-image: url('images/sagas/torneio.webp'); }
+    .saga-card.fundo3 { background-image: url('images/sagas/eclipse.jpg'); }
+    .saga-card.fundo4 { background-image: url('images/sagas/future.jpg'); }
+    .saga-card.fundo5 { background-image: url('images/sagas/lab.jpe'); }
+    .saga-card.fundo6 { background-image: url('images/sagas/sparkidah.jpg'); }
+    .saga-card.fundo7 { background-image: url('images/sagas/shibuya.jpe'); }
+    .saga-card.fundo8 { background-image: url('images/sagas/treino.jpg'); }
+    .saga-card.fundo9 { background-image: url('images/sagas/jogo.webp'); }
+    .saga-card.fundo10 { background-image: url('images/sagas/hate.webp'); }
+    .saga-card.fundo11 { background-image: url('images/sagas/limbo.jpg'); }
+
+    /* Tamanhos progressivos */
+    .saga-card.tamanho1 { padding: 20px 18px; }
+    .saga-card.tamanho2 { padding: 22px 20px; }
+    .saga-card.tamanho3 { padding: 24px 22px; }
+    .saga-card.tamanho4 { padding: 26px 24px; }
+    .saga-card.tamanho5 { padding: 28px 26px; }
+    .saga-card.tamanho6 { padding: 30px 28px; }
+    .saga-card.tamanho7 { padding: 32px 30px; }
+    .saga-card.tamanho8 { padding: 34px 32px; }
+    .saga-card.tamanho9 { padding: 36px 34px; }
+    .saga-card.tamanho10 { padding: 38px 36px; }
+    .saga-card.tamanho11 { padding: 40px 38px; }
+
+    /* ===== BOTÕES ===== */
+    .link-sobre {
+        display: inline-block;
+        background: var(--roxopadrao--);
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 10px 10px 0 0;
+        transition: all 0.3s;
+        box-shadow: 0 4px 10px rgba(103, 38, 207, 0.3);
+    }
+
+    .link-sobre:hover {
+        transform: scale(1.05);
+        background: #7b3fe0;
+        box-shadow: 0 8px 20px rgba(103, 38, 207, 0.5);
+    }
+
+    /* ===== RESPONSIVIDADE ===== */
+    @media (max-width: 768px) {
+        .links-nav {
+            font-size: 22px;
+            padding: 6px 12px;
+        }
+        .caixa-principal {
+            padding: 40px 20px 25px;
+            width: 96%;
+        }
+        .destaque-titulo {
+            font-size: 1.6rem;
+        }
+        .destaque-imagem {
+            max-height: 280px;
+        }
+        .sagas-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        .saga-card .saga-titulo {
+            font-size: 1.2rem;
+        }
+        .saga-card .saga-descricao {
+            font-size: 0.8rem;
+        }
+        .temporada-titulo {
+            font-size: 1.6rem;
+        }
+        .caixa-principal p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .links-nav {
+            font-size: 18px;
+            padding: 4px 10px;
+        }
+        .caixa-principal {
+            padding: 30px 14px 20px;
+        }
+        .destaque-titulo {
+            font-size: 1.3rem;
+        }
+        .destaque-descricao {
+            font-size: 0.95rem;
+            padding: 10px 14px;
+        }
+        .destaque-imagem {
+            max-height: 200px;
+        }
+        .sagas-grid {
+            grid-template-columns: 1fr;
+        }
+        .saga-card .saga-titulo {
+            font-size: 1.1rem;
+        }
+        .saga-card .saga-descricao {
+            font-size: 0.75rem;
+        }
+        .temporada-titulo {
+            font-size: 1.3rem;
+            padding: 4px 14px;
+        }
+        .caixa-principal p {
+            font-size: 0.95rem;
+        }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #eeeaea;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--roxopadrao--);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--roxoclaro--);
+    }
+</style>
 <body>
     <header>
         <div class="caixa-header">
@@ -15,76 +428,260 @@
                 <a href="index.html" class="links-nav">Home</a>
                 <a href="conectados.html" class="links-nav">Conectados</a>
                 <a href="elementos.html" class="links-nav">Elementos</a>
-                
+                <a href="terminal.html" class="links-nav">Terminal</a>
                 <a href="playlist.html" class="links-nav">Playlist</a>
-
             </nav>
         </div>
     </header>
-    
+
     <main>
         <section>
             <div class="caixa-principal">
+                <!-- Ícone -->
                 <div class="icone">
                     <img src="images/icon.png" alt="icone" class="icone-elementos">
                 </div>
 
+                <!-- Destaque -->
+                <div class="destaque">
+                    <img 
+                        src="images/noticiaimagem.jpe" 
+                        alt="Imagem em destaque" 
+                        class="destaque-imagem"
+                        id="imagem-destaque"
+                    >
+                    <h2 class="destaque-titulo" id="titulo-destaque">Temporada 3 Info</h2>
+                    <p class="destaque-descricao" id="descricao-destaque">
+                        Eu sei que a próxima temporada está demorando um tempo, mas eu espero que, até pelo menos 
+
+                        O início do ano que vem nós possamos estar em Atheian Chronicles (por sinal, vai ganhar uma página dedicada nesse site depois).
+                        <br><br>
+                        Sobre a temporada em si, creio que o ritmo dela seja até mais rápido por conta 
+
+                        Que todo mundo vai ter sessões solo mais do que gerais por conta de todo mundo. 
+
+                        estar em times bem diferentes. Então eu vou tentar equilibrar, deixando os players lutarem entre si (coisa que será o principal foco), além da lore, que dessa vez será focada no VESSEL em si, mas isso praticamente leva à lore abordada nessa temporada ser: VESSEL > ENTIDADES > Honest e Idios. Parece muita coisa para uma temporada só, mas acredite, isso tudo se junta muito bem.
+
+                        Também planejo trazer mais coisas que mostrei em Sacrilégio, já que a timeline está minimamente perto dele, junto de outros personagens que não vemos faz um tempo, por isso ela deve ter umas 4 sagas.
+                        <br><br>
+                        A próxima temporada vai definir se os conectados vão prevalecer nesse mundo ou vão decair de vez. Tudo vai estar nas mãos de vocês.
+                        <br><br>
+                        Inspirações para a temporada:
+
+                        Underverse,
+
+                        Bleach e 
+
+                        20th Century Boys <br>
+                        <strong></strong>
+                    </p>
+                </div>
+
+                <!-- Textos -->
                 <p>
-                    Tales of Elementaris é um RPG de mesa feito Online por eu João pedro ( JP ) junto do meu Grupo de amigos via Discord e outros aplicativos.
-
-
+                    Tales of Elementaris é um RPG de mesa online criado por mim João Pedro (JP) e feito com meu grupo de amigos. As sessões acontecem principalmente pelo Discord, além de outros aplicativos utilizados durante as campanhas.
                 </p>
 
                 <p>
-                    Dentro do RPG nos usamos um sistema proprio com inspiração em Ordem Paranormal e outros Sistemas de RPG. Tambem possui inspiraçoes em questão de historia
-                    em UNDERTALE/DELTARUNE, Gwain Saga, Underverse, Matrix, Hora de Aventura e MUITOS Outros.
-                </p>
-
-
-                <p>
-                    Sinopse Geral: O Mundo de elementaris fica dentro praticamente de um Programa de Computador chamado V.E.S.S.E.L, Um Multiverso virtual que possuem Elementos especiais que dão poderes amigos
-                    Personagens desse mundo. Os Protagonistas são pessoas chamadas de CONECTADOS, Seres Elementaristas que possuem um Limite de Poder acima de quase todos 
-                    do Multiverso, Possuindo um Leque enorme de poderes mas em troca, A saude mental deles é a mais afetada.
+                    O RPG utiliza um sistema próprio, inspirado em diversos sistemas de RPG de mesa, especialmente Ordem Paranormal, mas também incorpora mecânicas originais desenvolvidas ao longo do projeto.
                 </p>
 
                 <p>
-                    Elementaris possui atualmente Duas Temporadas, Com 11 Sagas no Total neste momento.
-
+                    O mundo de Elementaris existe dentro de um gigantesco programa de computador conhecido como V.E.S.S.E.L. — um multiverso virtual formado por inúmeros mundos e dimensões. Nesse universo, existem elementos especiais capazes de conceder habilidades que podem ajudar ou piorar a vida de muitas pessoas.
                 </p>
 
-                <ul>
+                <p>
+                    Elementaris possui atualmente duas temporadas com 11 Sagas neste momento.
+                </p>
 
-                    <p>Temporada 1</p>
-                    <li>Saga 1: PERFECT CHAOS </li>
-                    <li>Saga 2: Torneio Ha-Kai</li>
-                    <li>Saga 3: Eclipse</li>
-                    <li>Saga 4: Back to the Future</li>
-                    <li>Saga 5: W.D Laboratories</li>
-                    <li>Saga 6: Sparkidah Chronicles</li>
-                    <p>Temporada 2</p>
-                    <li>Saga 1: O Incidente em Shinjuku</li>
-                    <li>Saga 2: Arco de Treinamento</li>
-                    <li>Saga 3: O Jogo dos mais Fortes</li>
-                    <li>Saga 4: IMPERFECT HATRED.</li>
-                    <li>Saga 5: The Limbo.</li>
-                    <p>Temporada 3 ( ainda pra acontecer 🦺 )</p>
-                    
+                <!-- Sagas em Cards -->
+                <div class="sagas-section">
 
-                    
-                </ul>
+                    <!-- Temporada 1 -->
+                    <div class="temporada">
+                        <h3 class="temporada-titulo t1">Temporada 1</h3>
+                        <div class="sagas-grid">
+                            <div class="saga-card fundo1 tamanho1">
+                                <span class="saga-titulo cor1">Perfect Chaos</span>
+                                <span class="saga-descricao">A cidade submersa pelos segredos de um passado que jamais morreu.</span>
+                            </div>
+                            <div class="saga-card fundo2 tamanho2">
+                                <span class="saga-titulo cor2">Torneio Ha-Kai</span>
+                                <span class="saga-descricao">MIKE RECONSTRUA MINHAS CRIANÇAS!</span>
+                            </div>
+                            <div class="saga-card fundo3 tamanho3">
+                                <span class="saga-titulo cor3">Eclipse</span>
+                                <span class="saga-descricao">O retorno de uma ameaça, enquanto dois irmãos escolhem lados.</span>
+                            </div>
+                            <div class="saga-card fundo4 tamanho4">
+                                <span class="saga-titulo cor4">Back to the Future</span>
+                                <span class="saga-descricao">Uma viagem ao passado para conhecer aqueles que um dia foram seus pais.</span>
+                            </div>
+                            <div class="saga-card fundo5 tamanho5">
+                                <span class="saga-titulo cor5">Laboratórios W.D</span>
+                                <span class="saga-descricao">Nas profundezas do laboratório, o passado ainda esta vivo.</span>
+                            </div>
+                            <div class="saga-card fundo6 tamanho6">
+                                <span class="saga-titulo cor6">Sparkidah Chronicles</span>
+                                <span class="saga-descricao">O confronto contra o rei sem nome, mas com um propósito.</span>
+                            </div>
+                        </div>
+                    </div>
 
-                <a href="https://www.youtube.com/@TalesofElementaris-th2wd" class="link-sobre">Canal do Youtube</a>
-                <a href="https://open.spotify.com/playlist/45XU9eZ4wIYKupHqqXZqaK" class="link-sobre">Playlist do Spotify ( feita pelo GB )</a>
+                    <!-- Temporada 2 -->
+                    <div class="temporada">
+                        <h3 class="temporada-titulo t2">Temporada 2</h3>
+                        <div class="sagas-grid">
+                            <div class="saga-card fundo7 tamanho7">
+                                <span class="saga-titulo cor7">O Incidente em Shinjuku</span>
+                                <span class="saga-descricao">O caos urbano que abalou as estruturas do mundo.</span>
+                            </div>
+                            <div class="saga-card fundo8 tamanho8">
+                                <span class="saga-titulo cor8">Arco de Treinamento</span>
+                                <span class="saga-descricao">A preparação para os desafios que viriam.</span>
+                            </div>
+                            <div class="saga-card fundo9 tamanho9">
+                                <span class="saga-titulo cor9">O Jogo dos mais Fortes</span>
+                                <span class="saga-descricao">A batalha final pela supremacia.</span>
+                            </div>
+                            <div class="saga-card fundo10 tamanho10">
+                                <span class="saga-titulo cor10">IMPERFECT HATRED</span>
+                                <span class="saga-descricao">O ódio que corrói a alma.</span>
+                            </div>
+                            <div class="saga-card fundo11 tamanho11">
+                                <span class="saga-titulo cor11">Limbo</span>
+                                <span class="saga-descricao">O vazio entre a vida e a morte, onde tudo se perde.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Temporada 3 (em breve) -->
+                    <div class="temporada">
+                        <h3 class="temporada-titulo t3">Temporada 3 (em breve)</h3>
+                        <div class="sagas-grid">
+                            <div class="saga-card" style="background: rgba(0,0,0,0.3); border: 2px dashed var(--roxopadrao--); color: #ccc; min-height: 100px; display: flex; align-items: center; justify-content: center; font-family: var(--fontheader--); font-size: 1.2rem; text-shadow: none;">
+                                Em desenvolvimento...
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botões -->
+                <a href="https://www.youtube.com/@TalesofElementaris-th2wd" class="link-sobre" target="_blank">Canal do Youtube</a>
+                <a href="https://open.spotify.com/playlist/45XU9eZ4wIYKupHqqXZqaK" class="link-sobre" target="_blank">Playlist do Spotify</a>
+                <a href="https://guess-who-elementos.vercel.app/" class="link-sobre" target="_blank">Guess Who Elementaris</a>
+                <a href="https://tales-of-gambling.vercel.app/" class="link-sobre" target="_blank">Tales of Gambling</a>
                 
             </div>
-            
         </section>
-
-        
-
-
     </main>
 
-    
+    <script>
+        // =============================================================
+        // CONFIGURAÇÃO DAS IMAGENS DO DESTAQUE (Temporada 3)
+        // =============================================================
+        // 
+        // Insira aqui todas as imagens que podem aparecer no lugar da imagem original.
+        // Cada objeto deve ter:
+        //   - src: caminho da imagem (ex: 'images/destaque/imagem1.jpg')
+        //   - peso: número que define a raridade (quanto maior, mais comum)
+        //
+        // Exemplo de raridades:
+        //   - Comum: peso 20
+        //   - Média: peso 10
+        //   - Difícil: peso 5
+        //   - Rara: peso 2
+        //   - Ultra rara: peso 1
+        //
+        // Você pode adicionar, remover ou editar as imagens e pesos livremente.
+        // =============================================================
+        const imagensDestaque = [
+            // Imagens comuns (peso alto)
+            { src: 'images/noticiaimagem.jpe', peso: 35 },
+            { src: 'images/doodle.webp', peso: 35 },
+            { src: 'images/VideoAnotherHim.gif', peso: 35 },
+            { src: 'images/Fundo (1).gif', peso: 35 },
+
+            // Imagens médias
+            { src: 'images/destroyer.jpe', peso: 20 },
+            { src: 'images/roaring2.jpg', peso: 20 },
+            { src: 'images/yhwach01.jpg', peso: 20 },
+            { src: 'images/yhwach02.jpg', peso: 20 },
+            { src: 'images/yhwach02.jpg', peso: 20 },
+            { src: 'images/gaster01.jpe', peso: 20 },
+            { src: 'images/core.png', peso: 20 },
+            { src: 'images/rose.webp', peso: 20 },
+            { src: 'images/aradia.jpg', peso: 20 },
+            { src: 'images/idios.jpeg', peso: 20 },
+            { src: 'images/schrader01.jpg', peso: 20 },
+            { src: 'images/ultron.jpg', peso: 20 },
+            { src: 'images/kit.jpg', peso: 20 },
+            { src: 'images/kit2.jpg', peso: 20 },
+            { src: 'images/agnes.jpg', peso: 20 },
+            { src: 'images/trueform.webp', peso: 20 },
+            { src: 'images/fim.png', peso: 20 },
+
+
+            
+            
+
+        ];
+
+        // =============================================================
+        // FUNÇÃO PARA SELECIONAR UMA IMAGEM BASEADA NOS PESOS
+        // =============================================================
+        function selecionarImagemPorPeso(imagens) {
+            // Calcula a soma total dos pesos
+            const somaPesos = imagens.reduce((acc, img) => acc + img.peso, 0);
+            
+            // Gera um número aleatório entre 0 e a soma total
+            const aleatorio = Math.random() * somaPesos;
+            
+            // Percorre as imagens acumulando os pesos até ultrapassar o valor aleatório
+            let acumulado = 0;
+            for (const img of imagens) {
+                acumulado += img.peso;
+                if (aleatorio <= acumulado) {
+                    return img.src;
+                }
+            }
+            
+            // Fallback (nunca deve acontecer)
+            return imagens[0].src;
+        }
+
+        // =============================================================
+        // APLICA A IMAGEM SELECIONADA AO DESTAQUE
+        // =============================================================
+        function atualizarImagemDestaque() {
+            const imagemElemento = document.getElementById('imagem-destaque');
+            if (!imagemElemento) return;
+            
+            // Seleciona uma imagem com base nos pesos
+            const imagemEscolhida = selecionarImagemPorPeso(imagensDestaque);
+            
+            // Aplica fade-out e depois troca a imagem
+            imagemElemento.style.opacity = '0';
+            setTimeout(() => {
+                imagemElemento.src = imagemEscolhida;
+                imagemElemento.style.opacity = '1';
+            }, 300);
+        }
+
+        // =============================================================
+        // EXECUTA QUANDO A PÁGINA CARREGAR
+        // =============================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            atualizarImagemDestaque();
+        });
+
+        // =============================================================
+        // FUNÇÃO AUXILIAR PARA RECARREGAR A IMAGEM (caso queira usar no console)
+        // =============================================================
+        window.recarregarDestaque = function() {
+            atualizarImagemDestaque();
+        };
+    </script>
 </body>
 </html>

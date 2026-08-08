@@ -1,968 +1,626 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tales of Elementaris</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Conectados - Tales of Elementaris</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
-    
+    <style>
+        /* ===== FONTES ===== */
+        @font-face {
+            font-family: 'roboto';
+            src: url('fonts/RobotoCondensed-Black.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'vcr';
+            src: url('fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+        }
+
+        /* ===== VARIÁVEIS ===== */
+        :root {
+            --fontpadrao--: 'roboto';
+            --fontheader--: 'vcr';
+            --roxopadrao--: #6726cf;
+            --roxoclaro--: #8e6dcc;
+            --cinzaescuro--: #2a2a2a;
+            --branco--: #f0f0f0;
+        }
+
+        /* ===== RESET E BASE ===== */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-text-size-adjust: 100%;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #a5a5a5;
+            font-family: var(--fontpadrao--);
+            touch-action: manipulation;
+            overflow-x: hidden;
+        }
+
+        /* ===== HEADER ===== */
+        .caixa-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            width: 100%;
+            min-height: 10vh;
+            background: rgba(0, 0, 0, 0.7) url(videos/VideoAnotherHim.gif) center/cover;
+            background-blend-mode: overlay;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 15px;
+        }
+
+        .links-nav {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 28px;
+            font-family: var(--fontheader--);
+            text-transform: uppercase;
+            padding: 8px 18px;
+            transition: color 0.3s, text-shadow 0.3s;
+            position: relative;
+        }
+
+        .links-nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--roxopadrao--);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .links-nav:hover {
+            color: #b48aff;
+            text-shadow: 0 0 15px rgba(103, 38, 207, 0.6);
+        }
+
+        .links-nav:hover::after {
+            width: 80%;
+        }
+
+        .links-nav.active {
+            color: #b48aff;
+            text-shadow: 0 0 15px rgba(103, 38, 207, 0.8);
+        }
+
+        /* ===== MAIN E FUNDO ===== */
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        main::before {
+            content: "";
+            background: url(images/XTaleCity.webp) no-repeat center center;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        /* ===== CAIXA PRINCIPAL ===== */
+        .caixa-principal-2 {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--roxopadrao--);
+            border-radius: 30px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            max-width: 900px;
+            width: 92%;
+            margin: 20px auto 40px;
+            transition: all 0.3s;
+        }
+
+        .caixa-principal-2 p {
+            color: #222;
+            text-shadow: none;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* ===== CONTAINER DOS CONECTADOS ===== */
+        .conectados-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 10px 0;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        /* ===== CARDS ===== */
+        .card-conectado {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 35px 25px 30px;
+            margin: 0 auto;
+            width: 90%;
+            max-width: 650px;
+            min-height: 55vh;
+            border-radius: 25px;
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(2px);
+        }
+
+        .card-conectado:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+        }
+
+        .card-conectado::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.45;
+            z-index: 0;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        .card-conectado::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+
+        .card-conectado > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== TÍTULOS ===== */
+        .titulo-conectado {
+            font-family: var(--fontheader--);
+            font-size: 2.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 10px 0 15px;
+            padding-bottom: 10px;
+            position: relative;
+            text-shadow: 0 0 15px rgba(0,0,0,0.7);
+        }
+
+        .titulo-conectado::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 25%;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        }
+
+        /* ===== IMAGENS ===== */
+        .imagem-conectado {
+            width: 260px;
+            max-width: 80%;
+            border-radius: 15px;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s;
+            background: rgba(0,0,0,0.2);
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .imagem-conectado:hover {
+            transform: scale(1.04);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== BOTÃO ===== */
+        .botao {
+            margin-top: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .link-personagem {
+            display: inline-block;
+            padding: 14px 35px;
+            background: rgba(20, 20, 30, 0.9);
+            backdrop-filter: blur(4px);
+            color: #fff;
+            font-family: var(--fontheader--);
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-personagem:hover {
+            transform: translateY(-4px);
+            background: rgba(60, 60, 80, 0.9);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            border-color: rgba(255,255,255,0.6);
+        }
+
+        .link-personagem:active {
+            transform: translateY(0);
+        }
+
+        /* ===== CORES ESPECÍFICAS ===== */
+        .card-raiko {
+            border: 3px solid rgba(200, 30, 30, 0.8);
+            box-shadow: 0 10px 30px rgba(200, 0, 0, 0.5), inset 0 0 20px rgba(200, 0, 0, 0.2);
+        }
+        .card-raiko::before { background-image: url(images/raikoBg2.jpg); }
+        .card-raiko .titulo-conectado { color: #ffd0d0; text-shadow: 0 0 20px rgba(255,0,0,0.5); }
+        .card-raiko .link-personagem { border-color: rgba(255, 80, 80, 0.6); }
+        .card-raiko .link-personagem:hover { background: rgba(150, 20, 20, 0.9); }
+
+        .card-william {
+            border: 3px solid rgba(150, 30, 180, 0.8);
+            box-shadow: 0 10px 30px rgba(150, 0, 180, 0.5), inset 0 0 20px rgba(150, 0, 180, 0.2);
+        }
+        .card-william::before { background-image: url(images/WilliamBG.jpg); }
+        .card-william .titulo-conectado { color: #f0d0ff; text-shadow: 0 0 20px rgba(180, 0, 255, 0.4); }
+        .card-william .link-personagem { border-color: rgba(200, 100, 255, 0.6); }
+        .card-william .link-personagem:hover { background: rgba(100, 20, 130, 0.9); }
+
+        .card-mary {
+            border: 3px solid rgba(230, 130, 200, 0.8);
+            box-shadow: 0 10px 30px rgba(255, 100, 200, 0.4), inset 0 0 20px rgba(255, 100, 200, 0.2);
+        }
+        .card-mary::before { background-image: url(images/maryGif.gif); }
+        .card-mary .titulo-conectado { color: #ffe0f0; text-shadow: 0 0 20px rgba(255, 100, 200, 0.5); }
+        .card-mary .link-personagem { border-color: rgba(255, 150, 220, 0.6); }
+        .card-mary .link-personagem:hover { background: rgba(180, 80, 150, 0.9); }
+
+        .card-satoshi {
+            border: 3px solid rgba(180, 180, 180, 0.8);
+            box-shadow: 0 10px 30px rgba(100, 100, 100, 0.5), inset 0 0 20px rgba(200, 200, 200, 0.2);
+        }
+        .card-satoshi::before { background-image: url(images/SatoshiBG2.jpg); }
+        .card-satoshi .titulo-conectado { color: #f0f0ff; text-shadow: 0 0 20px rgba(200, 200, 255, 0.4); }
+        .card-satoshi .link-personagem { border-color: rgba(200, 200, 200, 0.6); }
+        .card-satoshi .link-personagem:hover { background: rgba(80, 80, 100, 0.9); }
+
+        .card-kitsune {
+            border: 3px solid rgba(255, 50, 50, 0.8);
+            box-shadow: 0 10px 30px rgba(200, 0, 0, 0.5), inset 0 0 20px rgba(200, 0, 0, 0.2);
+        }
+        .card-kitsune::before { background-image: url(images/KitsuneBG.jpg); }
+        .card-kitsune .titulo-conectado { color: #ffd0d0; text-shadow: 0 0 20px rgba(255, 0, 0, 0.5); }
+        .card-kitsune .link-personagem { border-color: rgba(255, 80, 80, 0.6); }
+        .card-kitsune .link-personagem:hover { background: rgba(150, 20, 20, 0.9); }
+
+        .card-hank {
+            border: 3px solid rgba(220, 210, 80, 0.8);
+            box-shadow: 0 10px 30px rgba(200, 180, 50, 0.5), inset 0 0 20px rgba(200, 180, 50, 0.2);
+        }
+        .card-hank::before { background-image: url(images/HankBG.jpg); }
+        .card-hank .titulo-conectado { color: #ffffd0; text-shadow: 0 0 20px rgba(255, 230, 50, 0.4); }
+        .card-hank .link-personagem { border-color: rgba(255, 230, 80, 0.6); }
+        .card-hank .link-personagem:hover { background: rgba(150, 130, 30, 0.9); }
+
+        /* ===== BOTÃO DE ERRO ===== */
+        .link-error {
+            display: inline-block;
+            margin: 30px auto;
+            transition: transform 0.3s;
+        }
+        .link-error:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .img-error {
+            width: 60px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .caixa-header { padding: 12px 0; }
+            .links-nav { font-size: 22px; padding: 6px 12px; }
+            .nav-links { gap: 5px 10px; }
+            .caixa-principal-2 { padding: 25px 20px; width: 96%; }
+            .caixa-principal-2 p { font-size: 0.95rem; }
+            .card-conectado { width: 95%; padding: 25px 15px 20px; min-height: 45vh; }
+            .titulo-conectado { font-size: 2rem; }
+            .imagem-conectado { width: 200px; }
+            .link-personagem { padding: 12px 25px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .links-nav { font-size: 18px; padding: 4px 10px; }
+            .caixa-principal-2 { padding: 20px 15px; }
+            .titulo-conectado { font-size: 1.6rem; }
+            .imagem-conectado { width: 160px; }
+            .link-personagem { padding: 10px 20px; font-size: 0.9rem; }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #eeeaea; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--roxopadrao--); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--roxoclaro--); }
+    </style>
 </head>
 <body>
-    
     <header>
         <div class="caixa-header">
             <nav class="nav-links">
                 <a href="index.html" class="links-nav">Home</a>
-                <a href="conectados.html" class="links-nav">Conectados</a>
+                <a href="conectados.html" class="links-nav active">Conectados</a>
                 <a href="elementos.html" class="links-nav">Elementos</a>
-                
+                <a href="terminal.html" class="links-nav">Terminal</a>
                 <a href="playlist.html" class="links-nav">Playlist</a>
             </nav>
         </div>
     </header>
-    
+
     <main>
-        <section>
+        <section style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <!-- Caixa introdutória -->
             <div class="caixa-principal-2">
                 <p>
-                    Os Conectados são os Personagens dos Jogadores do RPG, com cada jogador tendo Personagens principais sendo so Conectados e Personagens
-                    Secundarios diversos
+                    Os Conectados são os Personagens dos Jogadores do RPG, com cada jogador tendo Personagens principais sendo os Conectados e Personagens Secundários diversos.
                 </p>
-
                 <p>
-                    Os Players no caso são o Jean ( Kitsune ), Capuzado ( Satoshi ), Gbfoxy ( Raiko ), PessoaDosPoemas ( Mary ), Guibas ( William ) e Mr.Bolhas ( Hank ).
+                    Os Players no caso são o Jean (Kitsune), Capuzado (Satoshi), Gbfoxy (Raiko), PessoaDosPoemas (Mary), Guibas (William) e Mr.Bolhas (Hank).
                 </p>
-
                 <p>
-                    cada Conectado possui seu passado e Historia em geral como um Protagonista desse RPG.
-                    ( Inclusive as Bios abaixo foram criadas pelos proprios personagens )
+                    Cada Conectado possui seu passado e História em geral como um Protagonista desse RPG.<br>
+                    <em>(Inclusive as Bios abaixo foram criadas pelos próprios personagens)</em>
                 </p>
             </div>
 
+            <!-- Cards dos Conectados -->
             <div class="conectados-container">
-                <div class="caixa-conectados-raiko">
-                    <h1 class="titulo-conectado-raiko">RAIKO YASHI</h1>
-                    <img src="images/raiko2.png" alt="Raiko Yashi" class="icone-conectado-raiko" id="imagem-personagem-raiko">
+                <!-- Raiko -->
+                <div class="card-conectado card-raiko">
+                    <h1 class="titulo-conectado">RAIKO YASHI</h1>
+                    <img src="images/raiko2.png" alt="Raiko Yashi" class="imagem-conectado" id="imagem-personagem-raiko">
                     <div class="botao">
-                        <a href="https://raikoyashi.my.canva.site" class="link-personagem">Bio do Personagem</a>
+                        <a href="https://raikoyashi.my.canva.site" class="link-personagem" target="_blank">Bio do Personagem</a>
                     </div>
                 </div>
 
-                <div class="caixa-conectados-william">
-                    <h1 class="titulo-conectado-william">WILLIAM YUJI CARMELLO AFTON</h1>
-                    <img src="images/William.png" alt="William" class="icone-conectado-william" id="imagem-personagem-william">
-                    <div class="botao">
-                        <a href="#" class="link-personagem">Bio do Personagem</a>
-                    </div>
-                </div>
-
-                <div class="caixa-conectados-mary">
-                    <h1 class="titulo-conectado-mary">MARY ATHEIAN</h1>
-                    <img src="images/mary.png" alt="" class="icone-conectado-mary" id="imagem-personagem-mary">
+                <!-- William -->
+                <div class="card-conectado card-william">
+                    <h1 class="titulo-conectado">WILLIAM YUJI CARMELLO AFTON</h1>
+                    <img src="images/William.png" alt="William" class="imagem-conectado" id="imagem-personagem-william">
                     <div class="botao">
                         <a href="#" class="link-personagem">Bio do Personagem</a>
                     </div>
                 </div>
 
-                <div class="caixa-conectados-satoshi">
-                    <h1 class="titulo-conectado-satoshi"> SATOSHI W.D ASTORIA</h1>
-                    <img src="images/Satoshi.png" alt="" class="icone-conectado-satoshi" id="imagem-personagem-satoshi">
-                    <div class="botao">
-                        <a href="https://www.canva.com/design/DAG9wm6NnSY/bI8THmmwLEZgSU-c77PeJg/view?utm_content=DAG9wm6NnSY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h084024bed9" class="link-personagem">Bio do Personagem</a>
-                    </div>
-                </div>
-
-                <div class="caixa-conectados-kitsune">
-                    <h1 class="titulo-conectado-kitsune">KITSUNE SPARDA</h1>
-                    <img src="images/kitsune.png" alt="" class="icone-conectado-kitsune" id="imagem-personagem-kitsune">
+                <!-- Mary -->
+                <div class="card-conectado card-mary">
+                    <h1 class="titulo-conectado">MARY ATHEIAN</h1>
+                    <img src="images/mary.png" alt="Mary" class="imagem-conectado" id="imagem-personagem-mary">
                     <div class="botao">
                         <a href="#" class="link-personagem">Bio do Personagem</a>
                     </div>
                 </div>
 
-                <div class="caixa-conectados-hank">
-                    <h1 class="titulo-conectado-hank">HANK SCHRADER</h1>
-                    <img src="images/hank.png" alt="" class="icone-conectado-hank" id="imagem-personagem-hank">
+                <!-- Satoshi -->
+                <div class="card-conectado card-satoshi">
+                    <h1 class="titulo-conectado">SATOSHI W.D ASTORIA</h1>
+                    <img src="images/Satoshi.png" alt="Satoshi" class="imagem-conectado" id="imagem-personagem-satoshi">
+                    <div class="botao">
+                        <a href="https://www.canva.com/design/DAG9wm6NnSY/bI8THmmwLEZgSU-c77PeJg/view?utm_content=DAG9wm6NnSY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h084024bed9" class="link-personagem" target="_blank">Bio do Personagem</a>
+                    </div>
+                </div>
+
+                <!-- Kitsune -->
+                <div class="card-conectado card-kitsune">
+                    <h1 class="titulo-conectado">KITSUNE SPARDA</h1>
+                    <img src="images/kitsune.png" alt="Kitsune" class="imagem-conectado" id="imagem-personagem-kitsune">
+                    <div class="botao">
+                        <a href="#" class="link-personagem">Bio do Personagem</a>
+                    </div>
+                </div>
+
+                <!-- Hank -->
+                <div class="card-conectado card-hank">
+                    <h1 class="titulo-conectado">HANK SCHRADER</h1>
+                    <img src="images/hank.png" alt="Hank" class="imagem-conectado" id="imagem-personagem-hank">
                     <div class="botao">
                         <a href="#" class="link-personagem">Bio do Personagem</a>
                     </div>
                 </div>
             </div>
 
-            <a href="https://backstage-gamma-azure.vercel.app"><img src="images/erro2.png" alt="ruru" class="erro"></a>
+            <!-- Link de erro (ícone) -->
+            
         </section>
     </main>
 
-    <style>
-    /* Novas regras para responsividade */
-    .conectados-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 10px;
-        flex-wrap: wrap;
-    }
-    
-    @media (max-width: 768px) {
-        .caixa-conectados-raiko,
-        .caixa-conectados-william,
-        .caixa-conectados-mary,
-        .caixa-conectados-satoshi,
-        .caixa-conectados-kitsune,
-        .caixa-conectados-hank {
-            width: 90%;
-            min-height: auto;
-            padding: 20px;
-            margin: 20px auto;
-        }
-        
-        .titulo-conectado-raiko,
-        .titulo-conectado-william,
-        .titulo-conectado-mary,
-        .titulo-conectado-satoshi,
-        .titulo-conectado-kitsune,
-        .titulo-conectado-hank {
-            font-size: 1.8rem;
-            text-align: center;
-            margin: 10px 0;
-        }
-        
-        .icone-conectado-raiko,
-        .icone-conectado-william,
-        .icone-conectado-mary,
-        .icone-conectado-satoshi,
-        .icone-conectado-kitsune,
-        .icone-conectado-hank {
-            width: 200px;
-        }
-        
-        .botao {
-            margin-top: 20px;
-        }
-        
-        .link-personagem {
-            padding: 10px 25px;
-            font-size: 1rem;
-        }
-    }
-    
-    /* Estilos originais (mantidos conforme solicitado) */
-    .caixa-conectados-raiko {
-        display: flex;
-        padding: 40px;
-        margin: 40px auto;
-        max-width: 90%;
-        width: 600px;
-        min-height: 55vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px ridge rgba(122, 7, 7, 0.8);
-        border-radius: 15px;
-        position: relative;
-        overflow: hidden;
-        color: white;
-        box-shadow: 0 10px 30px rgba(252, 0, 0, 0.6),
-                    inset 0 0 15px rgba(146, 2, 2, 0.3);
-        transition: all 0.5s ease;
-    }
+    <script>
+        // =============================================================
+        // REDIRECIONAMENTO ALEATÓRIO COM CHANCE MÍNIMA
+        // =============================================================
+        // CONFIGURAÇÕES (altere aqui):
+        //   - chanceRedirecionamento: 0.02 = 2% de chance
+        //   - urlDestino: para onde redirecionar
+        // =============================================================
+        const CONFIG_REDIRECT = {
+            chance: 0.5,   // 2% (ajuste para o valor desejado)
+            url: 'https://formulario-elementaris.vercel.app/'  // URL de destino
+        };
 
-    .caixa-conectados-raiko:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-    }
+        // Executa a verificação assim que a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            const numero = Math.random(); // 0 a 1
+            if (numero < CONFIG_REDIRECT.chance) {
+                // Redireciona para a URL configurada
+                window.location.href = CONFIG_REDIRECT.url;
+            }
+        });
 
-    .caixa-conectados-raiko::before {
-        content: "";
-        background: url(images/raikoBg2.jpg) no-repeat center center/cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.5;
-        z-index: -2;
-        filter: brightness(0.8) contrast(1.2);
-    }
+        // =============================================================
+        // TROCA DE IMAGENS AO CLICAR (mantido do original)
+        // =============================================================
 
-    .caixa-conectados-raiko::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, 
-                    rgba(106, 65, 221, 0.2) 0%, 
-                    rgba(238, 9, 9, 0.4) 100%);
-        z-index: -1;
-    }
+        // Raiko
+        const imagensRaiko = [
+            "images/haise.png",
+            "images/raiko3.png",
+            "images/raiko4.png",
+            "images/raiko5.png",
+            "images/raiko6.png",
+            "images/raiko2.png"
+        ];
+        let idxRaiko = 0;
+        const imgRaiko = document.getElementById('imagem-personagem-raiko');
+        imgRaiko.addEventListener('click', function() {
+            idxRaiko = (idxRaiko + 1) % imagensRaiko.length;
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.src = imagensRaiko[idxRaiko];
+                this.style.opacity = 1;
+            }, 200);
+        });
 
-    .titulo-conectado-raiko {
-        color: rgb(255, 230, 230);
-        font-family: 'vcr', sans-serif;
-        text-shadow: 
-            0 0 8px rgba(141, 23, 23, 0.8),
-            0 0 15px rgba(141, 23, 23, 0.6),
-            2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin: 20px 0;
-        line-height: 1.2;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: 10px;
-    }
+        // William
+        const imagensWilliam = [
+            "images/Yhwach.png",
+            "images/William2.png",
+            "images/William3.png",
+            "images/William4.png",
+            "images/William.png"
+        ];
+        let idxWilliam = 0;
+        const imgWilliam = document.getElementById('imagem-personagem-william');
+        imgWilliam.addEventListener('click', function() {
+            idxWilliam = (idxWilliam + 1) % imagensWilliam.length;
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.src = imagensWilliam[idxWilliam];
+                this.style.opacity = 1;
+            }, 200);
+        });
 
-    .titulo-conectado-raiko::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        background: linear-gradient(90deg, 
-                    transparent, 
-                    rgba(252, 0, 0, 0.8), 
-                    transparent);
-    }
+        // Mary
+        const imagensMary = [
+            "images/mary2.png",
+            "images/mary3.png",
+            "images/mary.png"
+        ];
+        let idxMary = 0;
+        const imgMary = document.getElementById('imagem-personagem-mary');
+        imgMary.addEventListener('click', function() {
+            idxMary = (idxMary + 1) % imagensMary.length;
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.src = imagensMary[idxMary];
+                this.style.opacity = 1;
+            }, 200);
+        });
 
-    .icone-conectado-raiko {
-        width: 280px;
-        border-radius: 10px;
-        border: 3px solid rgba(182, 16, 16, 0.3);
-        box-shadow: 0 5px 20px rgba(161, 7, 7, 0.5),
-                    inset 0 0 15px rgba(121, 8, 8, 0.2);
-        transition: all 0.4s ease;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 5px;
-        backdrop-filter: blur(2px);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
+        // Satoshi
+        const imagensSatoshi = [
+            "images/Satoshi2.png",
+            "images/Satoshi3.png",
+            "images/Satoshi.png"
+        ];
+        let idxSatoshi = 0;
+        const imgSatoshi = document.getElementById('imagem-personagem-satoshi');
+        imgSatoshi.addEventListener('click', function() {
+            idxSatoshi = (idxSatoshi + 1) % imagensSatoshi.length;
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.src = imagensSatoshi[idxSatoshi];
+                this.style.opacity = 1;
+            }, 200);
+        });
 
-    .icone-conectado-raiko:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(173, 18, 18, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.05);
-    }
+        // Kitsune
+        const imagensKitsune = [
+            "images/kitsune.png",
+            "images/kitsune2.png",
+            "images/kitsune3.png",
+            "images/kitsune4.png",
+            "images/kitsune5.png",
+            "images/kitsune.png"
+        ];
+        let idxKitsune = 0;
+        const imgKitsune = document.getElementById('imagem-personagem-kitsune');
+        imgKitsune.addEventListener('click', function() {
+            idxKitsune = (idxKitsune + 1) % imagensKitsune.length;
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.src = imagensKitsune[idxKitsune];
+                this.style.opacity = 1;
+            }, 200);
+        });
 
-    /* William parte */
-    .caixa-conectados-william {
-        display: flex;
-        padding: 40px;
-        margin: 40px auto;
-        max-width: 90%;
-        width: 600px;
-        min-height: 55vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px ridge rgba(90, 10, 128, 0.8);
-        border-radius: 15px;
-        position: relative;
-        overflow: hidden;
-        color: white;
-        box-shadow: 0 10px 30px rgba(126, 11, 161, 0.6),
-                    inset 0 0 15px rgba(84, 27, 138, 0.3);
-        transition: all 0.5s ease;
-    }
-
-    .caixa-conectados-william:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-    }
-
-    .caixa-conectados-william::before {
-        content: "";
-        background: url(images/WilliamBG.jpg) no-repeat center center/cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.5;
-        z-index: -2;
-        filter: brightness(0.8) contrast(1.2);
-    }
-
-    .caixa-conectados-william::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, 
-                    rgba(97, 5, 105, 0.2) 0%, 
-                    rgba(171, 20, 177, 0.4) 100%);
-        z-index: -1;
-    }
-
-    .titulo-conectado-william {
-        color: rgb(255, 230, 230);
-        font-family: 'vcr', sans-serif;
-        text-shadow: 
-            0 0 8px rgba(137, 23, 141, 0.8),
-            0 0 15px rgba(141, 23, 141, 0.6),
-            2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin: 20px 0;
-        line-height: 1.2;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    .titulo-conectado-william::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        background: linear-gradient(90deg, 
-                    transparent, 
-                    rgba(255, 255, 255, 0.8), 
-                    transparent);
-    }
-
-    .icone-conectado-william {
-        width: 280px;
-        border-radius: 10px;
-        border: 3px solid rgba(131, 39, 143, 0.3);
-        box-shadow: 0 5px 20px rgba(138, 16, 117, 0.5),
-                    inset 0 0 15px rgba(255, 255, 255, 0.2);
-        transition: all 0.4s ease;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 5px;
-        backdrop-filter: blur(2px);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .icone-conectado-william:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(162, 40, 187, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.05);
-    }
-
-    /* Mary Parte */
-    .caixa-conectados-mary {
-        display: flex;
-        padding: 40px;
-        margin: 40px auto;
-        max-width: 90%;
-        width: 600px;
-        min-height: 55vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px ridge rgba(232, 164, 235, 0.8);
-        border-radius: 15px;
-        position: relative;
-        overflow: hidden;
-        color: white;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
-                    inset 0 0 15px rgba(255, 255, 255, 0.3);
-        transition: all 0.5s ease;
-    }
-
-    .caixa-conectados-mary:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-    }
-
-    .caixa-conectados-mary::before {
-        content: "";
-        background: url(images/maryGif.gif) no-repeat center center/cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.5;
-        z-index: -2;
-        filter: brightness(0.8) contrast(1.2);
-    }
-
-    .caixa-conectados-mary::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, 
-                    rgba(235, 57, 220, 0.2) 0%, 
-                    rgba(187, 187, 187, 0.4) 100%);
-        z-index: -1;
-    }
-
-    .titulo-conectado-mary {
-        color: rgb(255, 230, 230);
-        font-family: 'vcr', sans-serif;
-        text-shadow: 
-            0 0 8px rgba(240, 114, 245, 0.8),
-            0 0 15px rgba(196, 93, 196, 0.6),
-            2px 2px 4px rgba(243, 227, 238, 0.5);
-        margin: 20px 0;
-        line-height: 1.2;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    .titulo-conectado-mary::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        background: linear-gradient(90deg, 
-                    transparent, 
-                    rgba(255, 255, 255, 0.8), 
-                    transparent);
-    }
-
-    .icone-conectado-mary {
-        width: 280px;
-        border-radius: 10px;
-        border: 3px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5),
-                    inset 0 0 15px rgba(255, 255, 255, 0.2);
-        transition: all 0.4s ease;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 5px;
-        backdrop-filter: blur(2px);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .icone-conectado-mary:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.05);
-    }
-
-    /* Satoshi Parte */
-    .caixa-conectados-satoshi {
-        display: flex;
-        padding: 40px;
-        margin: 30px auto;
-        max-width: 90%;
-        width: 600px;
-        min-height: 55vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px ridge rgba(119, 119, 119, 0.8);
-        border-radius: 15px;
-        position: relative;
-        overflow: hidden;
-        color: white;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
-                    inset 0 0 15px rgba(255, 255, 255, 0.3);
-        transition: all 0.5s ease;
-    }
-
-    .caixa-conectados-satoshi:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-    }
-
-    .caixa-conectados-satoshi::before {
-        content: "";
-        background: url(images/SatoshiBG2.jpg) no-repeat center center/cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.5;
-        z-index: -2;
-        filter: brightness(0.8) contrast(1.2);
-    }
-
-    .caixa-conectados-satoshi::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, 
-                    rgba(113, 11, 230, 0.2) 0%, 
-                    rgba(153, 152, 153, 0.4) 100%);
-        z-index: -1;
-    }
-
-    .titulo-conectado-satoshi {
-        color: rgb(255, 230, 230);
-        font-family: 'vcr', sans-serif;
-        text-shadow: 
-            0 0 8px rgba(0, 0, 0, 0.8),
-            0 0 15px rgba(109, 109, 109, 0.6),
-            2px 2px 4px rgba(243, 227, 238, 0.5);
-        margin: 20px 0;
-        line-height: 1.2;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    .titulo-conectado-satoshi::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        background: linear-gradient(90deg, 
-                    transparent, 
-                    rgba(255, 255, 255, 0.8), 
-                    transparent);
-    }
-
-    .icone-conectado-satoshi {
-        width: 280px;
-        border-radius: 10px;
-        border: 3px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5),
-                    inset 0 0 15px rgba(255, 255, 255, 0.2);
-        transition: all 0.4s ease;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 5px;
-        backdrop-filter: blur(2px);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .icone-conectado-satoshi:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.05);
-    }
-
-    /* Kitsune Parte */
-    .caixa-conectados-kitsune {
-        display: flex;
-        padding: 40px;
-        margin: 30px auto;
-        max-width: 90%;
-        width: 600px;
-        min-height: 55vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px ridge rgba(255, 2, 2, 0.8);
-        border-radius: 15px;
-        position: relative;
-        overflow: hidden;
-        color: white;
-        box-shadow: 0 10px 30px rgba(150, 2, 2, 0.6),
-                    inset 0 0 15px rgba(17, 15, 15, 0.3);
-        transition: all 0.5s ease;
-    }
-
-    .caixa-conectados-kitsune:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-    }
-
-    .caixa-conectados-kitsune::before {
-        content: "";
-        background: url(images/KitsuneBG.jpg) no-repeat center center/cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.5;
-        z-index: -2;
-        filter: brightness(0.8) contrast(1.2);
-    }
-
-    .caixa-conectados-kitsune::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, 
-                    rgba(230, 11, 11, 0.2) 0%, 
-                    rgba(14, 2, 2, 0.4) 100%);
-        z-index: -1;
-    }
-
-    .titulo-conectado-kitsune {
-        color: rgb(255, 230, 230);
-        font-family: 'vcr', sans-serif;
-        text-shadow: 
-            0 0 8px rgba(231, 0, 0, 0.8),
-            0 0 15px rgba(114, 10, 10, 0.6),
-            2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin: 20px 0;
-        line-height: 1.2;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    .titulo-conectado-kitsune::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        background: linear-gradient(90deg, 
-                    transparent, 
-                    rgba(221, 3, 3, 0.8), 
-                    transparent);
-    }
-
-    .icone-conectado-kitsune {
-        width: 280px;
-        border-radius: 10px;
-        border: 3px solid rgba(255, 0, 0, 0.3);
-        box-shadow: 0 5px 20px rgba(41, 2, 2, 0.5),
-                    inset 0 0 15px rgba(236, 0, 0, 0.2);
-        transition: all 0.4s ease;
-        background-color: rgba(0, 0, 0, 0.3);
-        padding: 5px;
-        backdrop-filter: blur(2px);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .icone-conectado-kitsune:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.05);
-    }
-
-    /* Hank Parte */
-    .caixa-conectados-hank {
-        display: flex;
-        padding: 40px;
-        margin: 30px auto;
-        max-width: 90%;
-        width: 600px;
-        min-height: 55vh;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 3px ridge rgba(238, 231, 133, 0.8);
-        border-radius: 15px;
-        position: relative;
-        overflow: hidden;
-        color: white;
-        box-shadow: 0 10px 30px rgba(223, 208, 75, 0.6),
-                    inset 0 0 15px rgba(60, 43, 136, 0.3);
-        transition: all 0.5s ease;
-    }
-
-    .caixa-conectados-hank:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-    }
-
-    .caixa-conectados-hank::before {
-        content: "";
-        background: url(images/HankBG.jpg) no-repeat center center/cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.5;
-        z-index: -2;
-        filter: brightness(0.8) contrast(1.2);
-    }
-
-    .caixa-conectados-hank::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, 
-                    rgba(236, 235, 132, 0.2) 0%, 
-                    rgba(54, 77, 180, 0.4) 100%);
-        z-index: -1;
-    }
-
-    .titulo-conectado-hank {
-        color: rgb(255, 230, 230);
-        font-family: 'vcr', sans-serif;
-        text-shadow: 
-            0 0 8px rgba(227, 231, 0, 0.8),
-            0 0 15px rgba(10, 12, 114, 0.6),
-            2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin: 20px 0;
-        line-height: 1.2;
-        font-size: 3rem;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        position: relative;
-        padding-bottom: 10px;
-    }
-
-    .titulo-conectado-hank::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 25%;
-        width: 50%;
-        height: 2px;
-        background: linear-gradient(90deg, 
-                    transparent, 
-                    rgba(217, 221, 3, 0.8), 
-                    transparent);
-    }
-
-    .icone-conectado-hank {
-        width: 280px;
-        border-radius: 10px;
-        border: 3px solid rgba(197, 180, 82, 0.3);
-        box-shadow: 0 5px 20px rgba(221, 194, 121, 0.5),
-                    inset 0 0 15px rgba(17, 9, 133, 0.2);
-        transition: all 0.4s ease;
-        background-color: rgba(213, 223, 127, 0.3);
-        padding: 5px;
-        backdrop-filter: blur(2px);
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .icone-conectado-hank:hover {
-        transform: scale(1.03);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.05);
-    }
-
-    .botao {
-        margin-top: 30px;
-        text-align: center;
-        width: 100%;
-        position: relative;
-    }
-
-    .link-personagem {
-        display: inline-block;
-        padding: 14px 35px;
-        background: linear-gradient(135deg, 
-                    rgba(35, 34, 36, 0.9) 0%, 
-                    rgba(18, 18, 19, 0.9) 100%);
-        color: white;
-        font-family: 'vcr', sans-serif;
-        text-decoration: none;
-        font-size: 1.2rem;
-        border-radius: 50px;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4),
-                    inset 0 0 10px rgba(255, 255, 255, 0.2);
-        transition: all 0.4s ease;
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-        letter-spacing: 1px;
-    }
-
-    .link-personagem:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-        background: linear-gradient(135deg, 
-                    rgba(215, 213, 218, 0.9) 0%, 
-                    rgba(107, 106, 107, 0.9) 100%);
-    }
-
-    .link-personagem:active {
-        transform: translateY(0);
-    }
-
-    .link-personagem::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent
-        );
-        transition: 0.6s;
-        z-index: -1;
-    }
-
-    .link-personagem:hover::before {
-        left: 100%;
-    }
-
-    .caixa-conectados-raiko .particula {
-        position: absolute;
-        background: rgba(255, 255, 255, 0.6);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: -1;
-    }
-</style>
-
-<script>
-    // Array com os caminhos das imagens alternativas
-    const imagensAlternativas = [
-        "images/haise.png",
-        "images/raiko3.png",
-        "images/raiko4.png",
-        "images/raiko5.png",
-        "images/raiko6.png",
-        "images/raiko2.png"
-    ];
-    
-    let indiceAtual = 0;
-    const imagemPersonagem = document.getElementById('imagem-personagem-raiko');
-    
-    function trocarImagem() {
-        indiceAtual = (indiceAtual + 1) % imagensAlternativas.length;
-        imagemPersonagem.src = imagensAlternativas[indiceAtual];
-        
-        imagemPersonagem.style.opacity = 0;
-        setTimeout(() => {
-            imagemPersonagem.style.opacity = 1;
-        }, 200);
-    }
-    
-    imagemPersonagem.addEventListener('click', trocarImagem);
-
-    const imagensAlternativasWilliam = [
-        "images/Yhwach.png",
-        "images/William2.png",
-        "images/William3.png",
-        "images/William4.png",
-        "images/William.png"
-    ];
-    
-    const imagemPersonagemWilliam = document.getElementById('imagem-personagem-william');
-    
-    function trocarImagemwilliam() {
-        indiceAtual = (indiceAtual + 1) % imagensAlternativasWilliam.length;
-        imagemPersonagemWilliam.src = imagensAlternativasWilliam[indiceAtual];
-        
-        imagemPersonagemWilliam.style.opacity = 0;
-        setTimeout(() => {
-            imagemPersonagemWilliam.style.opacity = 1;
-        }, 200);
-    }
-    
-    imagemPersonagemWilliam.addEventListener('click', trocarImagemwilliam);
-
-    const imagensAlternativasMary = [
-        "images/mary2.png",
-        "images/mary3.png",
-        "images/mary.png"
-    ];
-    
-    const imagemPersonagemMary = document.getElementById('imagem-personagem-mary');
-    
-    function trocarImagemMary() {
-        indiceAtual = (indiceAtual + 1) % imagensAlternativasMary.length;
-        imagemPersonagemMary.src = imagensAlternativasMary[indiceAtual];
-        
-        imagemPersonagemMary.style.opacity = 0;
-        setTimeout(() => {
-            imagemPersonagemMary.style.opacity = 1;
-        }, 200);
-    }
-    
-    imagemPersonagemMary.addEventListener('click', trocarImagemMary);
-
-    const imagensAlternativasSatoshi = [
-        "images/Satoshi2.png",
-        "images/Satoshi3.png",
-        "images/Satoshi.png"
-    ];
-    
-    const imagemPersonagemSatoshi = document.getElementById('imagem-personagem-satoshi');
-    
-    function trocarImagemSatoshi() {
-        indiceAtual = (indiceAtual + 1) % imagensAlternativasSatoshi.length;
-        imagemPersonagemSatoshi.src = imagensAlternativasSatoshi[indiceAtual];
-        
-        imagemPersonagemSatoshi.style.opacity = 0;
-        setTimeout(() => {
-            imagemPersonagemSatoshi.style.opacity = 1;
-        }, 200);
-    }
-    
-    imagemPersonagemSatoshi.addEventListener('click', trocarImagemSatoshi);
-
-    const imagensAlternativasKitsune = [
-        "images/kitsune.png",
-        "images/kitsune2.png",
-        "images/kitsune3.png",
-        "images/kitsune4.png",
-        "images/kitsune5.png",
-        "images/kitsune.png"
-    ];
-    
-    const imagemPersonagemKitsune = document.getElementById('imagem-personagem-kitsune');
-    
-    function trocarImagemKitsune() {
-        indiceAtual = (indiceAtual + 1) % imagensAlternativasKitsune.length;
-        imagemPersonagemKitsune.src = imagensAlternativasKitsune[indiceAtual];
-        
-        imagemPersonagemKitsune.style.opacity = 0;
-        setTimeout(() => {
-            imagemPersonagemKitsune.style.opacity = 1;
-        }, 200);
-    }
-    
-    imagemPersonagemKitsune.addEventListener('click', trocarImagemKitsune);
-
-    const imagensAlternativasHank = [
-        "images/hank.png",
-        "images/hank2.png",
-        "images/hank3.png",
-        "images/hank4.png",
-        "images/hank.png"
-    ];
-    
-    const imagemPersonagemHank = document.getElementById('imagem-personagem-hank');
-    
-    function trocarImagemHank() {
-        indiceAtual = (indiceAtual + 1) % imagensAlternativasHank.length;
-        imagemPersonagemHank.src = imagensAlternativasHank[indiceAtual];
-        
-        imagemPersonagemHank.style.opacity = 0;
-        setTimeout(() => {
-            imagemPersonagemHank.style.opacity = 1;
-        }, 200);
-    }
-    
-    imagemPersonagemHank.addEventListener('click', trocarImagemHank);
-</script>
-    
+        // Hank
+        const imagensHank = [
+            "images/hank.png",
+            "images/hank2.png",
+            "images/hank3.png",
+            "images/hank4.png",
+            "images/hank.png"
+        ];
+        let idxHank = 0;
+        const imgHank = document.getElementById('imagem-personagem-hank');
+        imgHank.addEventListener('click', function() {
+            idxHank = (idxHank + 1) % imagensHank.length;
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.src = imagensHank[idxHank];
+                this.style.opacity = 1;
+            }, 200);
+        });
+    </script>
 </body>
 </html>
